@@ -1,0 +1,505 @@
+{
+  "formatVersion": 1,
+  "menu": {
+    "Config.GlobalTab": {
+      "label": "Config.globalTab",
+      "formFields": {
+        "header.custom_css": {
+          "type": "inputTextArea",
+          "required": false,
+          "label": "Config.headerCustomCssLabel",
+          "options": {
+            "defaultValue": ""
+          }
+        },
+        "header.custom_html": {
+          "type": "inputTextArea",
+          "required": false,
+          "label": "Config.headerCustomHtmlLabel",
+          "options": {
+            "defaultValue": ""
+          }
+        },
+        "footer.custom_html": {
+          "type": "inputTextArea",
+          "required": false,
+          "label": "Config.footerCustomHtmlLabel",
+          "options": {
+            "defaultValue": ""
+          }
+        },
+        "global.hide_title": {
+          "type": "checkBox",
+          "required": false,
+          "label": "Config.globalHideTitleLabel",
+          "options": {
+            "defaultValue": "false"
+          }
+        },
+        "header.enable_drop_left": {
+          "type": "checkBox",
+          "required": false,
+          "label": "Config.headerEnableDropLeftLabel",
+          "options": {
+            "defaultValue": "false"
+          }
+        },
+        "header.drop_left_offset": {
+          "type": "inputNumber",
+          "required": false,
+          "label": "Config.headerDropLeftOffsetLabel",
+          "options": {
+            "defaultValue": 300
+          }
+        }
+      }
+    },
+    "Config.CategoryTab": {
+      "label": "Config.categoryTab",
+      "formFields": {
+        "categoryImage.size": {
+          "type": "selectBox",
+          "required": false,
+          "label": "Config.categoryImageSizeLabel",
+          "options": {
+            "defaultValue": "cover",
+            "selectBoxValues": [
+              {
+                "value": "cover",
+                "caption": "Config.categoryImageSizeCover"
+              },
+              {
+                "value": "contain",
+                "caption": "Config.categoryImageSizeContain"
+              }
+            ]
+          }
+        },
+        "categoryImage.hide_on_mobile": {
+          "type": "checkBox",
+          "required": false,
+          "label": "Config.categoryImageHideOnMobileLabel",
+          "options": {
+            "defaultValue": "false"
+          }
+        },
+        "category.collapse_filters": {
+          "type": "checkBox",
+          "required": false,
+          "label": "Config.categoryCollapseFiltersLabel",
+          "options": {
+            "defaultValue": "false"
+          }
+        }
+      }
+    },
+    "Config.ItemListsTab": {
+      "label": "Config.itemListsTab",
+      "formFields": {
+        "item.lists.hideAddToBasket": {
+          "type": "checkBox",
+          "required": false,
+          "label": "Config.itemListsHideAddToBasketLabel",
+          "options": {
+            "defaultValue": "false"
+          }
+        }
+      }
+    },
+    "Config.ItemViewTab": {
+      "label": "Config.itemViewTab",
+      "formFields": {
+        "singleItemStickBlock.disable": {
+          "type": "checkBox",
+          "required": false,
+          "label": "Config.singleItemStickBlockDisableLabel",
+          "options": {
+            "defaultValue": "false"
+          }
+        },
+        "singleItemIconsWithText.hide": {
+          "type": "checkBox",
+          "required": false,
+          "label": "Config.singleItemIconsWithTextHideLabel",
+          "options": {
+            "defaultValue": "false"
+          }
+        },
+        "singleItemParallax.hide": {
+          "type": "checkBox",
+          "required": false,
+          "label": "Config.singleItemParallaxHideLabel",
+          "options": {
+            "defaultValue": "false"
+          }
+        },
+        "singleItemParallax.html_en": {
+          "type": "inputTextArea",
+          "required": false,
+          "label": "Config.singleItemHtmlEnLabel",
+          "options": {
+            "defaultValue": "<h3 class='m-y-0'>Sehen Sie sich unsere neu eingetroffenen Highlights an</h3><h1 class='my-3'>Top Preise</h1><span>Es gibt viele M&ouml;glichkeiten dieses Template zu individualisieren.</span>"
+          }
+        },
+        "singleItemParallax.html_de": {
+          "type": "inputTextArea",
+          "required": false,
+          "label": "Config.singleItemHtmlDeLabel",
+          "options": {
+            "defaultValue": "<h3 class='m-y-0'>Sehen Sie sich unsere neu eingetroffenen Highlights an</h3><h1 class='my-3'>Top Preise</h1><span>Es gibt viele M&ouml;glichkeiten dieses Template zu individualisieren.</span>"
+          }
+        },
+        "singleItemParallax.html_it": {
+          "type": "inputTextArea",
+          "required": false,
+          "label": "Config.singleItemHtmlItLabel",
+          "options": {
+            "defaultValue": "<h3 class='m-y-0'>Sehen Sie sich unsere neu eingetroffenen Highlights an</h3><h1 class='my-3'>Top Preise</h1><span>Es gibt viele M&ouml;glichkeiten dieses Template zu individualisieren.</span>"
+          }
+        },
+        "singleItemParallax.html_es": {
+          "type": "inputTextArea",
+          "required": false,
+          "label": "Config.singleItemHtmlEsLabel",
+          "options": {
+            "defaultValue": "<h3 class='m-y-0'>Sehen Sie sich unsere neu eingetroffenen Highlights an</h3><h1 class='my-3'>Top Preise</h1><span>Es gibt viele M&ouml;glichkeiten dieses Template zu individualisieren.</span>"
+          }
+        },
+        "singleItemParallax.html_pl": {
+          "type": "inputTextArea",
+          "required": false,
+          "label": "Config.singleItemHtmlPlLabel",
+          "options": {
+            "defaultValue": "<h3 class='m-y-0'>Sehen Sie sich unsere neu eingetroffenen Highlights an</h3><h1 class='my-3'>Top Preise</h1><span>Es gibt viele M&ouml;glichkeiten dieses Template zu individualisieren.</span>"
+          }
+        },
+        "singleItemParallax.html_fr": {
+          "type": "inputTextArea",
+          "required": false,
+          "label": "Config.singleItemHtmlFrLabel",
+          "options": {
+            "defaultValue": "<h3 class='m-y-0'>Sehen Sie sich unsere neu eingetroffenen Highlights an</h3><h1 class='my-3'>Top Preise</h1><span>Es gibt viele M&ouml;glichkeiten dieses Template zu individualisieren.</span>"
+          }
+        },
+        "singleItemLists.relations": {
+          "type": "multiCheckBox",
+          "required": false,
+          "label": "Config.singleItemListsRelationsLabel",
+          "options": {
+            "defaultValue": "",
+            "checkBoxValues": [
+              {
+                "value": "Similar",
+                "caption": "Config.singleItemListsRelationSimilar"
+              },
+              {
+                "value": "Accessory",
+                "caption": "Config.singleItemListsRelationAccessory"
+              },
+              {
+                "value": "ReplacementPart",
+                "caption": "Config.singleItemListsRelationReplacementPart"
+              },
+              {
+                "value": "Bundle",
+                "caption": "Config.singleItemListsRelationBundle"
+              }
+            ]
+          }
+        },
+        "singleItemLists.pages": {
+          "type": "inputNumber",
+          "required": false,
+          "label": "Config.singleItemListsPagesLabel",
+          "options": {
+            "defaultValue": 8
+          }
+        }
+      }
+    },
+    "Config.FooterTab": {
+      "label": "Config.footerTab",
+      "formFields": {
+        "footer.hide_plentylions_link": {
+          "type": "checkBox",
+          "required": false,
+          "deprecated": true,
+          "label": "Config.footerHideCopyrightLabel",
+          "options": {
+            "defaultValue": "false"
+          }
+        }
+      }
+    },
+    "Config.B2BTab": {
+      "label": "Config.b2bTab",
+      "formFields": {
+        "b2b.Enable": {
+          "type": "checkBox",
+          "required": false,
+          "label": "Config.b2bEnableLabel",
+          "options": {
+            "defaultValue": "false"
+          }
+        },
+        "b2b.CustomerClassIds": {
+          "type": "inputText",
+          "required": false,
+          "label": "Config.b2bCustomerClassIds",
+          "options": {
+            "defaultValue": "1,2"
+          }
+        }
+      }
+    },
+    "Config.DesignTab": {
+      "label": "Config.designTab",
+      "formFields": {
+        "legend-hide-bundle-badge": {
+          "type": "selectBox",
+          "required": false,
+          "scss": true,
+          "label": "Config.hideBundleBageLabel",
+          "options": {
+            "defaultValue": "block",
+            "selectBoxValues": [
+              {
+                "value": "block",
+                "caption": "Config.hideBundleBageLabelBlock"
+              },
+              {
+                "value": "none",
+                "caption": "Config.hideBundleBageLabelNone"
+              }
+            ]
+          }
+        },
+        "legend-font-family-primary": {
+          "type": "inputText",
+          "required": false,
+          "scss": true,
+          "label": "Config.fontFamilyPrimaryLabel",
+          "options": {
+            "defaultValue": "Custom-Font, 'Open Sans', sans-serif"
+          }
+        },
+        "legend-font-family-secondary": {
+          "type": "inputText",
+          "required": false,
+          "scss": true,
+          "label": "Config.fontFamilySecondaryLabel",
+          "options": {
+            "defaultValue": "Custom-Font, 'Roboto Slab', serif"
+          }
+        },
+        "legend-color-primary": {
+          "type": "colorPicker",
+          "required": false,
+          "scss": true,
+          "label": "Config.brandPrimaryLabel",
+          "options": {
+            "defaultValue": "#000"
+          }
+        },
+        "legend-color-primary-light-percent": {
+          "type": "inputText",
+          "required": false,
+          "scss": true,
+          "label": "Config.brandPrimaryLightPercentLabel",
+          "options": {
+            "defaultValue": "50%"
+          }
+        },
+        "legend-color-secondary": {
+          "type": "colorPicker",
+          "required": false,
+          "scss": true,
+          "label": "Config.brandSecondaryLabel",
+          "options": {
+            "defaultValue": "#ed1c2e"
+          }
+        },
+        "legend-border-color": {
+          "type": "colorPicker",
+          "required": false,
+          "scss": true,
+          "label": "Config.borderColorLabel",
+          "options": {
+            "defaultValue": "#e9e9e9"
+          }
+        },
+        "legend-mobile-sidemenu-background": {
+          "type": "colorPicker",
+          "required": false,
+          "scss": true,
+          "label": "Config.mobileSidemenuBackgroundLabel",
+          "options": {
+            "defaultValue": "#141414"
+          }
+        },
+        "legend-mobile-sidemenu-color1": {
+          "type": "colorPicker",
+          "required": false,
+          "scss": true,
+          "label": "Config.mobileSidemenuColor1Label",
+          "options": {
+            "defaultValue": "#fff"
+          }
+        },
+        "legend-footer-background": {
+          "type": "colorPicker",
+          "required": false,
+          "scss": true,
+          "label": "Config.footerBackgroundLabel",
+          "options": {
+            "defaultValue": "#141414"
+          }
+        },
+        "legend-footer-color1": {
+          "type": "colorPicker",
+          "required": false,
+          "scss": true,
+          "label": "Config.footerColor1Label",
+          "options": {
+            "defaultValue": "#fff"
+          }
+        },
+        "legend-footer-color2": {
+          "type": "colorPicker",
+          "required": false,
+          "scss": true,
+          "label": "Config.footerColor2Label",
+          "options": {
+            "defaultValue": "#959595"
+          }
+        },
+        "legend-footer-hover-color": {
+          "type": "colorPicker",
+          "required": false,
+          "scss": true,
+          "label": "Config.footerHoverColorLabel",
+          "options": {
+            "defaultValue": "#ed1c2e"
+          }
+        },
+        "tag_danger": {
+          "type": "colorPicker",
+          "required": false,
+          "scss": true,
+          "label": "Config.tagDangerLabel",
+          "options": {
+            "defaultValue": "#ed1c2e"
+          }
+        },
+        "tag_primary": {
+          "type": "colorPicker",
+          "required": false,
+          "scss": true,
+          "label": "Config.tagPrimaryLabel",
+          "options": {
+            "defaultValue": "#323232"
+          }
+        },
+        "tag_success": {
+          "type": "colorPicker",
+          "required": false,
+          "scss": true,
+          "label": "Config.tagSuccessLabel",
+          "options": {
+            "defaultValue": "#7ed321"
+          }
+        },
+        "availability_1": {
+          "type": "colorPicker",
+          "required": false,
+          "scss": true,
+          "label": "Config.availability1Label",
+          "options": {
+            "defaultValue": "#7ed321"
+          }
+        },
+        "availability_2": {
+          "type": "colorPicker",
+          "required": false,
+          "scss": true,
+          "label": "Config.availability2Label",
+          "options": {
+            "defaultValue": "#7ed321"
+          }
+        },
+        "availability_3": {
+          "type": "colorPicker",
+          "required": false,
+          "scss": true,
+          "label": "Config.availability3Label",
+          "options": {
+            "defaultValue": "#ed1c2e"
+          }
+        },
+        "availability_4": {
+          "type": "colorPicker",
+          "required": false,
+          "scss": true,
+          "label": "Config.availability4Label",
+          "options": {
+            "defaultValue": "#ed1c2e"
+          }
+        },
+        "availability_5": {
+          "type": "colorPicker",
+          "required": false,
+          "scss": true,
+          "label": "Config.availability5Label",
+          "options": {
+            "defaultValue": "#323232"
+          }
+        },
+        "availability_6": {
+          "type": "colorPicker",
+          "required": false,
+          "scss": true,
+          "label": "Config.availability6Label",
+          "options": {
+            "defaultValue": "#323232"
+          }
+        },
+        "availability_7": {
+          "type": "colorPicker",
+          "required": false,
+          "scss": true,
+          "label": "Config.availability7Label",
+          "options": {
+            "defaultValue": "#323232"
+          }
+        },
+        "availability_8": {
+          "type": "colorPicker",
+          "required": false,
+          "scss": true,
+          "label": "Config.availability8Label",
+          "options": {
+            "defaultValue": "#323232"
+          }
+        },
+        "availability_9": {
+          "type": "colorPicker",
+          "required": false,
+          "scss": true,
+          "label": "Config.availability9Label",
+          "options": {
+            "defaultValue": "#4d4f4d"
+          }
+        },
+        "availability_10": {
+          "type": "colorPicker",
+          "required": false,
+          "scss": true,
+          "label": "Config.availability10Label",
+          "options": {
+            "defaultValue": "#4d4f4d"
+          }
+        }
+      }
+    }
+  }
+}

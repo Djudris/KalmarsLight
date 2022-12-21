@@ -1,0 +1,30 @@
+<!-- SSR:template(user-login-handler) -->
+<script type="x/template" data-component="user-login-handler">
+    <div id="login-change" class="position-relative">
+        <div class="dropdown" v-if="isLoggedIn">
+            <a href="#" class="dropdown-toggle nav-link" id="accountMenuList" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-boundary="window">
+                <span class="pl-material pl-outline-person_outline"></span>
+                <span class="d-none d-sm-inline">{{ trans("Ceres::Template.loginHello", {"username": "${username}" }) }}</span>
+            </a>
+            <div class="account-menu dropdown-menu small m-0 p-0 mw-100">
+                <div class="list-group" aria-labelledby="accountMenuList" >
+                    <a :href="$ceres.urls.myAccount" class="list-group-item small"><span class="pl-material pl-outline-account_circle"></span> ${ $translate("Ceres::Template.loginMyAccount") }</a>
+                    <a href="#" class="list-group-item small" v-logout><span class="pl-material pl-outline-exit_to_app"></span> ${ $translate("Ceres::Template.loginLogout") }</a>
+                </div>
+            </div>
+        </div>
+        <div v-if="!isLoggedIn">
+            <a class="nav-link" v-if="showLogin" :href="isLogin ? 'javascript:void(0)' : '#login'" :data-toggle="isLogin ? false : 'modal'" @click="createLoginModal(); unmarkInputFields();" :aria-label="$translate('Ceres::Template.login')">
+                <span class="pl-material pl-outline-exit_to_app"></span>
+                <span class="d-none d-sm-inline">${ $translate("Ceres::Template.login") }</span>
+            </a>
+            <template v-if="showRegistration">
+                <a class="nav-link" :href="isRegister ? 'javascript:void(0)' : '#registration'" :data-toggle="isRegister ? false : 'modal'"  @click="createRegisterModal(); unmarkInputFields();" :aria-label="$translate('Ceres::Template.loginRegister')">
+                    <span class="pl-material pl-outline-person_add"></span>
+                    <span class="d-none d-sm-inline">${ $translate("Ceres::Template.loginRegister") }</span>
+                </a>
+            </template>
+        </div>
+    </div>
+</script>
+<!-- /SSR -->

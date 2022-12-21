@@ -1,0 +1,22 @@
+{% import "Ceres::Widgets.Helper.TwigBuilder" as Twig %}
+
+{% set customClass = widget.settings.customClass.mobile %}
+{% set recipient = widget.settings.recipient.mobile %}
+{% set subject = widget.settings.subject.mobile %}
+
+<div class="widget widget-legend-contact-form{% if customClass | length > 0 %} {{ customClass }}{% endif %}">
+    <div class="widget-inner"{% if isPreview %} data-builder-child-container="form"{% endif %}>
+        <client-only>
+            <legend-contact-form
+                    subject="{{ subject }}"
+                    recipient="{{ recipient }}">
+                <template #form-fields>
+                    {{ children.form | raw }}
+                    {% if ceresConfig.global.googleRecaptchaApiKey | trim is not empty %}
+                        <recaptcha></recaptcha>
+                    {% endif %}
+                </template>
+            </legend-contact-form>
+        </client-only>
+    </div>
+</div>

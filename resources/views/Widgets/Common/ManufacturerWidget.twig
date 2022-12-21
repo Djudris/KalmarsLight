@@ -1,0 +1,27 @@
+{% set customClass = widget.settings.customClass.mobile %}
+{% set title = widget.settings.title.mobile %}
+{% set manufacturerIdsList = widget.settings.manufacturerIdsList.mobile %}
+{% set responsiveOne = widget.settings.responsiveOne.mobile %}
+{% set responsiveTwo = widget.settings.responsiveTwo.mobile %}
+{% set responsiveThree = widget.settings.responsiveThree.mobile %}
+
+{% set manufacturers = cservices.manufacturer.findByIds(manufacturerIdsList) %}
+
+<div class="widget widget-manufacturer{% if manufacturers is empty %} widget-placeholder{% endif %}{% if customClass | length > 0 %} {{ customClass }}{% endif %}">
+    <div class="widget-inner">
+        {% if title|length > 0 %}
+            <div class="widget-caption mb-3">
+                <h2>{{ title }}</h2>
+            </div>
+        {% endif %}
+        <client-only>
+            <manufacturer-image-carousel
+                    :manufacturers-data="{{ manufacturers | json_encode() }}"
+                    :responsive-one="{{ responsiveOne }}"
+                    :responsive-two="{{ responsiveTwo }}"
+                    :responsive-three="{{ responsiveThree }}"
+                    :enable-carousel="true" >
+            </manufacturer-image-carousel>
+        </client-only>
+    </div>
+</div>

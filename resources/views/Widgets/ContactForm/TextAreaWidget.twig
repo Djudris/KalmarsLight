@@ -1,0 +1,10 @@
+{% set title = widget.settings.title.mobile %}
+{% set name = widget.settings.name.mobile %}
+{% set placeholder = widget.settings.placeholder.mobile %}
+{% set required = widget.settings.required.mobile %}
+
+{% set uid = uid() %}
+<div class="input-unit textarea">
+    <textarea name="{{ name }}" id="textarea-{{ uid }}" placeholder="{{ placeholder }}"{% if required %} required{% endif %} rows="10"></textarea>
+    <label for="textarea-{{ uid }}">{{ title }}</label>
+</div>

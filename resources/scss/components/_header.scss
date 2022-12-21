@@ -1,0 +1,351 @@
+#titleBeforeBreadcrumbs {
+  padding-top: 20px;
+}
+
+#titleBeforeBreadcrumbs h1 {
+  font-size: 1.7rem;
+  font-weight: normal;
+  text-transform: uppercase;
+}
+
+.main-navbar-collapsable ul.mainmenu>li>a {
+  font-family: $legend-font-family-secondary;
+}
+
+#vue-app .navbar a {
+  font-size: 1rem;
+}
+
+.qty-box .qty-btn-container .qty-btn {
+  line-height: 19px;
+}
+
+.navbar-brand img {
+  max-height: 120px;
+  max-width: 100%;
+}
+
+.controls-list i {
+  font-size: 20px !important;
+}
+
+.controls-list .basket-preview-hover-wrapper i {
+  font-size: unset !important;
+}
+
+.controls-list>li.list-inline-item {
+  line-height: 30px;
+}
+
+.top-bar .controls-list>li .basket-preview-hover .basket-item a {
+  color: $legend-color-secondary;
+  line-height: 1;
+}
+
+.basket-preview-hover .basket-totals .checkOutBtn {
+  color: #fff !important;
+}
+
+.top-bar .controls-list {
+  margin-bottom: 0;
+}
+
+.top-bar .controls-list .control-user {
+  margin-left: 10px;
+}
+
+.top-bar .controls-list .control-user #login-change {
+  display: inline-block;
+}
+
+.top-bar .controls-list .control-user #login-change>.dropdown .dropdown-menu {
+  transform: none !important;
+  top: auto !important;
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.5);
+}
+
+.cmp-totals dd {
+  margin-bottom: 0;
+}
+
+.controls-list i.v-mid {
+  vertical-align: middle;
+  margin-left: 5px;
+}
+
+#vue-app .navbar {
+  background: #fff;
+  border-bottom: 0;
+  font-size: 1.15rem;
+}
+
+#vue-app .navbar>.nv-wrap {
+  padding: 10px 0;
+  border-bottom: 1px solid darken($legend-border-color, 10%);
+  width: 100%;
+}
+
+#mainTopMenuWrapper {
+  font-size: 1.2rem;
+  border-bottom: 1px solid darken($legend-border-color, 10%);
+  background-color: #fff;
+  width: 100%;
+}
+
+.navbar-menu.sticky #mainTopMenuWrapper .container-max {
+  padding: 0 !important;
+}
+
+#vue-app #page-header {
+  background-color: #fff;
+}
+
+.top-bar {
+  background-color: transparent;
+  border-bottom: 1px dotted $legend-border-color;
+}
+
+.top-bar,
+.top-bar a:not(.btn) {
+  color: $legend-color-primary-light;
+}
+
+.footer,
+.plentylions-link {
+  background-color: $legend-footer-background;
+}
+
+.breadcrumb-item+.breadcrumb-item {
+  padding-left: 0;
+}
+
+.breadcrumb-item+.breadcrumb-item::before {
+  color: $legend-color-primary;
+  padding-right: 0.4rem;
+  padding-left: 0.4rem;
+}
+
+.toggle-basket-preview {
+  color: $legend-color-primary-light !important;
+}
+
+.top-bar .controls-list .control-basket .toggle-basket-preview {
+  color: $legend-color-primary-light;
+}
+
+.top-bar .controls-list .control-basket .toggle-basket-preview .badge-right,
+.top-bar .controls-list .control-basket .toggle-basket-preview .badge {
+  margin-right: 0;
+}
+
+.toggle-basket-preview .sum,
+.top-bar .controls-list .control-basket .toggle-basket-preview .badge {
+  color: $legend-color-secondary;
+}
+
+.control-basket .badge-right {
+  font-size: 0.85rem;
+  color: #fff;
+  background-color: $legend-color-secondary;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  position: absolute;
+  right: 7px;
+  top: 3px;
+  text-align: center;
+  line-height: 18px;
+}
+
+.cmp-country-settings,
+.cmp-currency-select {
+  color: $legend-color-primary-light;
+}
+
+.top-bar .cmp {
+  position: absolute;
+  background-color: #fff;
+  top: 1px;
+}
+
+.cmp-country-settings ul li a,
+.cmp-currency-select ul li a {
+  border: solid 1px transparent;
+  color: $legend-color-primary-light !important;
+}
+
+.cmp-country-settings ul li.active a,
+.cmp-currency-select ul li.active a,
+.cmp-country-settings ul li a:hover,
+.cmp-currency-select ul li a:hover {
+  background-color: transparent;
+  border: solid 1px $legend-color-secondary;
+  color: $legend-color-primary-light;
+}
+
+.top-bar .controls-list .control-wish-list a span.pl-outline-favorite {
+  color: $legend-color-secondary;
+}
+
+.top-bar .controls-list .control-basket .toggle-basket-preview,
+.top-bar .controls-list .control-basket .toggle-basket-preview:hover {
+  background-color: transparent;
+}
+
+.mobile-navigation {
+  background: $legend-mobile-sidemenu-background;
+}
+
+.top-bar .controls-list>li a:not(.btn) {
+  padding: 5px 0.6rem;
+}
+
+#controlsListLeft.controls-list>li:first-child a:not(.btn) {
+  padding-left: 0;
+}
+
+.top-bar .controls-list .control-wish-list a {
+  padding-right: 0 !important;
+}
+
+.top-bar .controls-list .control-basket .toggle-basket-preview {
+  padding-right: 0;
+}
+
+#controlsListLeft.controls-list>li a:not(.btn) {
+  padding: 5px 5px;
+}
+
+#controlsListRight {
+  flex: 1;
+  justify-content: flex-end;
+  order: 100;
+}
+
+.top-bar .controls-list>li .pl-material,
+.top-bar .controls-list i.flag-icon {
+  font-size: 1.2rem;
+  vertical-align: sub;
+}
+
+.top-bar .controls-list i.flag-icon {
+  font-size: 1.2rem !important;
+}
+
+.top-bar .controls-list>li a:not(.btn) {
+  color: $legend-color-primary-light;
+  font-size: 0.93rem;
+  opacity: 0.8;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+
+.top-bar .controls-list>li a:not(.btn)[aria-expanded="true"],
+.top-bar .controls-list>li a:not(.btn):hover {
+  background-color: transparent;
+  color: $legend-color-secondary;
+}
+
+.top-bar .controls-list .control-user #login-change>.dropdown.open>.dropdown-toggle,
+.top-bar .controls-list .control-user #login-change>.dropdown .dropdown-menu a {
+  background-color: transparent;
+}
+
+.top-bar .controls-list .control-user #login-change>.dropdown.open .dropdown-menu {
+  min-width: 0;
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.5);
+}
+
+.top-bar .controls-list .control-user #login-change>.dropdown .dropdown-menu a {
+  color: $legend-color-primary;
+}
+
+.top-bar .controls-list .control-user #login-change>.dropdown .dropdown-menu a:hover {
+  color: $legend-color-secondary;
+  background-color: transparent;
+}
+
+.basket-item .basket-item-container-right {
+  display: flex;
+  margin-left: auto;
+}
+
+.basket-item .basket-item-container-right .qty-box-container {
+  margin: 0 10px;
+}
+
+.basket-item .basket-item-container-right .price-box {
+  min-width: 100px;
+}
+
+@media (min-width: 992px) {
+  .basket-preview-header-wrap .basket-preview-wrapper.open-hover {
+    top: -20px;
+  }
+}
+
+.mobile-navigation .mainmenu,
+.mobile-navigation ul.breadcrumb,
+.mobile-navigation .breadcrumb .mob-home,
+.mobile-navigation .breadcrumb-item+.breadcrumb-item:before {
+  color: $legend-mobile-sidemenu-color1;
+}
+
+.mobile-navigation .breadcrumb .mob-home-li {
+  pointer-events: all !important;
+  cursor: pointer;
+}
+
+.mobile-navigation .breadcrumb .mob-home:before {
+  content: "" !important;
+}
+
+/* Search */
+.searchCol .search-input {
+  font-size: 1.15rem;
+  width: 100%;
+  border: 1px solid $legend-border-color;
+  padding: 8px 44px 8px 10px;
+}
+
+.searchCol .search-submit {
+  width: 38px;
+  height: 40px;
+  line-height: 40px;
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  color: $legend-color-primary-light;
+  border: 0;
+  background-color: transparent;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.autocomplete-suggestions>.autocomplete-suggestion>.autocomplete-image-container {
+  flex: 0 0 40px;
+}
+
+/* menu */
+
+.main-navbar-collapsable.normalmenu ul.mainmenu>li.ddown.drop-left {
+  &>ul {
+    right: 0;
+  }
+
+  li.level1>ul {
+    right: 100%;
+    left: auto;
+    box-shadow: -3px 3px 5px rgba(0, 0, 0, 0.5);
+  }
+
+  li.level1>a {
+    text-align: right;
+  }
+
+  li.level1.has-children>a:after {
+    float: left;
+    content: "\e903";
+    margin-right: 10px;
+  }
+}

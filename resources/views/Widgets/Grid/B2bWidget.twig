@@ -1,0 +1,15 @@
+{% import "Ceres::Widgets.Helper.TwigBuilder" as Twig %}
+{% import "Ceres::Widgets.Helper.WidgetHelper" as WidgetHelper %}
+
+{{ Twig.set("b2bEnable", Twig.call("config", ["Legend.b2b.Enable"])) }}
+{{ Twig.set("b2bCustomerClassId", Twig.call("services.getCustomer.getContactClassId")) }}
+{{ Twig.set("b2bCustomerClassIds", Twig.call("config", ["Legend.b2b.CustomerClassIds"]) ~ " | split(\",\")") }}
+{{ Twig.set("showPrice", "( b2bEnable == \"false\" or b2bCustomerClassId in b2bCustomerClassIds )") }}
+
+{{ Twig.if("showPrice or #{ isPreview | json_encode }") }}
+<div class="widget widget-b2b-container">
+    <div class="widget-inner">
+        <div{% if isPreview %} data-builder-child-container="first"{% endif %}>{{ children.first | raw }}</div>
+    </div>
+</div>
+{{ Twig.endif() }}

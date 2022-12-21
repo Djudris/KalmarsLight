@@ -1,0 +1,69 @@
+{
+  "presets": {
+    "header": [
+      {
+        "label": "Widget.presetHeaderDefault",
+        "presetClass": "Legend\\Widgets\\Presets\\DefaultHeaderPreset"
+      }
+    ],
+    "footer": [
+      {
+        "label": "Widget.presetFooterDefault",
+        "presetClass": "Legend\\Widgets\\Presets\\DefaultFooterPreset"
+      }
+    ],
+    "content": [
+      {
+        "label": "Widget.presetHomepageDefault",
+        "presetClass": "Legend\\Widgets\\Presets\\DefaultHomepagePreset"
+      }
+    ],
+    "singleitem":
+    [
+      {
+        "label":"Widget.presetSingleItemDefault",
+        "presetClass": "Legend\\Widgets\\Presets\\DefaultSingleItemPreset"
+      }
+    ],
+    "categoryitem": [
+      {
+        "label": "Widget.presetItemCategoryDefault",
+        "presetClass": "Legend\\Widgets\\Presets\\ItemCategoryPreset"
+      }
+    ],
+    "itemsearch": [
+      {
+        "label": "Widget.presetItemSearchDefault",
+        "presetClass": "Legend\\Widgets\\Presets\\ItemSearchPreset"
+      }
+    ],
+    "itemset": [
+      {
+        "label":"Widget.presetItemSetDefault",
+        "presetClass": "Legend\\Widgets\\Presets\\ItemSetPreset"
+      }
+    ]
+  },
+  "categories": [
+    {
+      "key": "legend",
+      "label": "Widget.categoryLegend",
+      "position": 1
+    },
+    {
+      "key": "legend-contact-form",
+      "label": "Widget.categoryLegendContactForm",
+      "position": 2
+    },
+    {
+      "key": "legend-item",
+      "label": "Widget.categoryLegendItem",
+      "position": 3
+    },
+    {
+      "key": "legend-category",
+      "label": "Widget.categoryLegendCategory",
+      "position": 4
+    }
+  ]
+}

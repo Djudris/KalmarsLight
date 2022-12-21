@@ -1,0 +1,24 @@
+{% import "Ceres::Widgets.Helper.TwigBuilder" as Twig %}
+{% import "Ceres::Widgets.Helper.WidgetHelper" as WidgetHelper %}
+
+{% set customClass     = widget.settings.customClass.mobile %}
+{% set spacingSettings = widget.settings.spacing %}
+{% set inlineSpacings  = WidgetHelper.getInlineSpacings(spacingSettings, spacingSettings.customPadding.mobile, spacingSettings.customMargin.mobile) %}
+{% set spacingClasses  = WidgetHelper.getSpacingClasses(spacingSettings, spacingSettings.customPadding.mobile, spacingSettings.customMargin.mobile) %}
+{% set appearance      = widget.settings.appearance.mobile | default("none") %}
+{% set showCrossPrice  = widget.settings.showCrossPrice.mobile is same as (true) %}
+
+{{ Twig.set("b2bEnable", Twig.call("config", ["Legend.b2b.Enable"])) }}
+{{ Twig.set("b2bCustomerClassId", Twig.call("services.getCustomer.getContactClassId")) }}
+{{ Twig.set("b2bCustomerClassIds", Twig.call("config", ["Legend.b2b.CustomerClassIds"]) ~ " | split(\",\")") }}
+{{ Twig.set("showPrice", "( b2bEnable == \"false\" or b2bCustomerClassId in b2bCustomerClassIds )") }}
+
+<div class="widget widget-item-price widget-{{ appearance }}
+    {% if customClass | length > 0 %} {{ customClass }}{% endif %}
+    {% if spacingClasses | length > 0 %} {{ spacingClasses }}{% endif %}"
+        {% if inlineSpacings | length > 0 %} style="{{ inlineSpacings }}"{% endif %}>
+        {{ Twig.if("showPrice or #{ isPreview | json_encode }") }}
+        <set-price v-if="$store.state.items.isItemSet" :show-cross-price="{{ showCrossPrice | json_encode }}"></set-price>
+        <item-price v-else :show-cross-price="{{ showCrossPrice | json_encode }}"></item-price>
+        {{ Twig.endif() }}
+</div>

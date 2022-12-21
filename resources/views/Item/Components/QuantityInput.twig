@@ -1,0 +1,37 @@
+<script type="x/template" id="quantity-input-LG">
+    <div class="qty-box">
+        <input class="qty-input"
+               type="text"
+               :value="displayValue"
+               @change="setValue($event.target.value)"
+               :disabled="waiting"
+               ref="quantityInputField"
+               :aria-label="$translate('Ceres::Template.itemQuantityInput')">
+
+        <div class="qty-btn-container">
+            <div class="qty-btn"
+                 @click="increaseValue()"
+                 :class="{ 'disabled': isMaximum || waiting, 'btn-appearance': useAppearance }"
+                 v-tooltip="isMaximum && compMax !== 0"
+                 data-toggle="tooltip"
+                 data-placement="top"
+                 :title="maximumHint"
+                 :aria-label="$translate('Ceres::Template.itemQuantityInputIncrease')">
+                <span class="pl-material pl-outline-arrow_forward_ios"></span>
+            </div>
+
+            <div class="qty-btn-seperator"></div>
+
+            <div class="qty-btn"
+                 @click="decreaseValue()"
+                 :class="{ 'disabled': isMinimum || waiting, 'btn-appearance': useAppearance }"
+                 v-tooltip="isMinimum && compMax !== 0"
+                 data-toggle="tooltip"
+                 data-placement="bottom"
+                 :title="minimumHint"
+                 :aria-label="$translate('Ceres::Template.itemQuantityInputDecrease')">
+                <span class="pl-material pl-outline-arrow_back_ios"></span>
+            </div>
+        </div>
+    </div>
+</script>

@@ -1,0 +1,28 @@
+{% set collapseFilters = config("Legend.category.collapse_filters") %}
+<script type="x/template" id="item-filter-side">
+    <div v-if="facet.name" class="col-12 side-bar-filter-card" :class="facet.cssClass">
+        <div class="sidebar-title-block" :data-pl-collapse="facetName">
+            ${facetName} <i class="pl-material {% if collapseFilters == "false" %}pl-chevron-up{% else %}pl-chevron-down{% endif %}"></i>
+        </div>
+        <div class="pl-collapsable pb-3"{% if collapseFilters == "true" %} style="display:none;"{% endif %} :data-pl-cl="facetName">
+            <div class="pt-3" v-if="facet.type === 'price'">
+                <client-only>
+                    <item-filter-price template-override="#item-filter-price-side"></item-filter-price>
+                </client-only>
+            </div>
+            <template v-else>
+                <div class="form-check-wrapper" v-for="value in facets" :key="value.id" :class="value.cssClass">
+                    <div class="form-check">
+                        <input :id="'option-' + value.id" class="form-check-input d-none" type="checkbox" :checked="isSelected(value.id)" @change="updateFacet(value)" :disabled="isLoading || value.count <= 0">
+                        <label :for="'option-' + value.id" class="form-check-label d-block" :class="[paddingClasses, isSelected(value.id) ? 'bg-appearance' : '']" :style="paddingInlineStyles">
+                            <div class="d-flex">
+                                <span class="flex-grow-1">${ value.name }</span>
+                                <div class="filter-badge">${ value.count }</div>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+            </template>
+        </div>
+    </div>
+</script>

@@ -1,0 +1,29 @@
+<!-- SSR:template(set-price) -->
+<script type="x/template" data-component="set-price">
+    <div class="has-crossprice">
+        <div class="crossprice" v-if="showCrossPrice && isSet && this.currentVariation.item.rebate > 0">
+            <del>
+                ${ setNoRebatePrice | currency(currentVariation.prices.set.currency) | itemCrossPrice }
+            </del>
+        </div>
+
+        <span class="price h1">
+            <span>
+                <template v-if="!isVariationSelected || isSetLoading">
+                {% verbatim %}
+                    {{ $translate("Ceres::Template." + dynamicTranslationKey,
+                        {
+                            price: $options.filters.currency(dynamicPrice, currentVariation.prices.set.currency)
+                        }
+                    ) }}
+                {% endverbatim %}
+                </template>
+
+                <template v-else>
+                    ${ dynamicPrice | currency(currentVariation.prices.set.currency) }
+                </template>
+            </span>
+        </span>
+    </div>
+</script>
+<!-- /SSR -->

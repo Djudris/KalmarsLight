@@ -1,0 +1,57 @@
+{{ component( "Legend::ItemList.Components.Filter.ItemFilterSide") }}
+{{ component( "Legend::ItemList.Components.Filter.ItemFilterPriceSide") }}
+
+<!-- SSR:template(item-filter-list) -->
+<script type="x/template" data-component="item-filter-list">
+    <client-only v-if="filterListBulk">
+        <div class="row">
+            <item-filter v-for="facet in facets"
+                         template-override="#item-filter-side"
+                         :facet="facet"
+                         :key="facet.id"
+                         :padding-classes="paddingClasses"
+                         :padding-inline-styles="paddingInlineStyles">
+            </item-filter>
+        </div>
+    </client-only>
+
+    <div v-else class="filter-wrapper text-left" v-show="facets && facets.length > 0">
+        <a class="btn btn-link filter-toggle" data-toggle="collapse" :href="'#filter-collapse_' + _cid" aria-expanded="false" :aria-controls="'filter-collapse_' + _cid">
+            <i class="fa fa-sliders default-float" aria-hidden="true"></i> ${ $translate("Ceres::Template.itemFilter") }
+        </a>
+
+        <div v-open-filter-toolbar class="filter-collapse collapse" :id="'filter-collapse_' + _cid">
+            <div class="container-max page-content component-loading" :class="{ 'is-loading': isLoading }">
+                <div class="row">
+                    <item-filter v-for="facet in facets" :facet="facet" :key="facet.id"></item-filter>
+                </div>
+
+                <div class="row">
+                    <div class="col-12 text-right">
+                        <button type="button" class="btn btn-primary btn-medium-large" data-toggle="collapse" :href="'#filter-collapse_' + _cid" :aria-controls="'filter-collapse_' + _cid">
+                            <i class="fa fa-times" aria-hidden="true"></i>
+                            <span>${ $translate("Ceres::Template.itemClose") }&nbsp;</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+<!-- /SSR -->
+
+<script type="x/template" id="item-filter-list-side">
+    <div class="filter-wrapper text-left" v-show="facets && facets.length > 0">
+        <div id="filterCollapse">
+            <client-only>
+                <div class="row">
+                    <item-filter v-for="facet in facets"
+                                 template-override="#item-filter-side"
+                                 :facet="facet"
+                                 :key="facet.id">
+                    </item-filter>
+                </div>
+            </client-only>
+        </div>
+    </div>
+</script>

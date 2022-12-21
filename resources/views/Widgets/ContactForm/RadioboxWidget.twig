@@ -1,0 +1,14 @@
+{% set title = widget.settings.title.mobile %}
+{% set name = widget.settings.name.mobile %}
+{% set entries = widget.settings.entries.mobile %}
+
+{% set uid = uid() %}
+<div class="form-group">
+    <label class="group-title"><b>{{ title }}</b></label>
+    {% for entry in entries if entry.title is not empty %}
+        <div class="form-check">
+            <input class="form-check-input" type="radio" value="true" name="{{ name }}" id="radio-{{ uid }}-{{ loop.index }}">
+            <label class="form-check-label" for="radio-{{ uid }}-{{ loop.index }}">{{ entry.title }}</label>
+        </div>
+    {% endfor %}
+</div>

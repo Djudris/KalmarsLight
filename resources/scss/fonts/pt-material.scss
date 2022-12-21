@@ -1,0 +1,290 @@
+@font-face {
+  font-family: 'pl-material';
+  src: url('#{$root-directory}/documents/fonts/pl-material.eot?7yuled');
+  src: url('#{$root-directory}/documents/fonts/pl-material.eot?7yuled#iefix') format('embedded-opentype'),
+  url('#{$root-directory}/documents/fonts/pl-material.ttf?7yuled') format('truetype'),
+  url('#{$root-directory}/documents/fonts/pl-material.woff?7yuled') format('woff'),
+  url('#{$root-directory}/documents/fonts/pl-material.svg?7yuled#pl-material') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+.pl-material {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'pl-material' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.pl-email-outline:before {
+  content: "\e940";
+}
+
+.pl-truck-fast-outline:before {
+  content: "\e941";
+}
+
+.pl-currency-eur:before {
+  content: "\e93f";
+}
+
+.pl-chat-alert-outline:before {
+  content: "\e93d";
+}
+
+.pl-post-outline:before {
+  content: "\e93e";
+}
+
+.pl-home:before {
+  content: "\e93c";
+}
+
+.pl-account-check:before {
+  content: "\e930";
+}
+
+.pl-account-check-outline:before {
+  content: "\e931";
+}
+
+.pl-account-key:before {
+  content: "\e932";
+}
+
+.pl-account-key-outline:before {
+  content: "\e933";
+}
+
+.pl-account-plus:before {
+  content: "\e934";
+}
+
+.pl-arrow-right-circle-outline:before {
+  content: "\e935";
+}
+
+.pl-cart:before {
+  content: "\e936";
+}
+
+.pl-gift:before {
+  content: "\e937";
+}
+
+.pl-gift-outline:before {
+  content: "\e938";
+}
+
+.pl-minus-circle-outline:before {
+  content: "\e939";
+}
+
+.pl-plus-circle-outline:before {
+  content: "\e93a";
+}
+
+.pl-sync:before {
+  content: "\e93b";
+}
+
+.pl-face-agent:before {
+  content: "\e92d";
+}
+
+.pl-phone:before {
+  content: "\e92e";
+}
+
+.pl-phone-outline:before {
+  content: "\e92f";
+}
+
+.pl-amazon:before {
+  content: "\e92a";
+}
+
+.pl-paypal:before {
+  content: "\e92b";
+}
+
+.pl-whatsapp:before {
+  content: "\e92c";
+}
+
+.pl-youtube:before {
+  content: "\e929";
+}
+
+.pl-child_friendly:before {
+  content: "\e928";
+}
+
+.pl-check:before {
+  content: "\e925";
+}
+
+.pl-chevron-down:before {
+  content: "\e926";
+}
+
+.pl-chevron-up:before {
+  content: "\e927";
+}
+
+.pl-shopping-basket-3:before {
+  content: "\e924";
+}
+
+.pl-arrow-expand:before {
+  content: "\e91a";
+}
+
+.pl-facebook:before {
+  content: "\e91b";
+}
+
+.pl-google-plus:before {
+  content: "\e91c";
+}
+
+.pl-instagram:before {
+  content: "\e91d";
+}
+
+.pl-package-variant:before {
+  content: "\e91e";
+}
+
+.pl-package-variant-closed:before {
+  content: "\e91f";
+}
+
+.pl-pinterest:before {
+  content: "\e920";
+}
+
+.pl-truck-fast:before {
+  content: "\e921";
+}
+
+.pl-twitter:before {
+  content: "\e922";
+}
+
+.pl-baseline-local_mall:before {
+  content: "\e923";
+}
+
+.pl-baseline-thumb_up:before {
+  content: "\e913";
+}
+
+.pl-baseline-verified_user:before {
+  content: "\e914";
+}
+
+.pl-outline-clear:before {
+  content: "\e915";
+}
+
+.pl-outline-local_shipping:before {
+  content: "\e916";
+}
+
+.pl-outline-perm_phone_msg:before {
+  content: "\e917";
+}
+
+.pl-outline-thumb_up:before {
+  content: "\e918";
+}
+
+.pl-outline-verified_user:before {
+  content: "\e919";
+}
+
+.pl-baseline-language:before {
+  content: "\e912";
+}
+
+.pl-baseline-search:before {
+  content: "\e900";
+}
+
+.pl-outline-account_box:before {
+  content: "\e901";
+}
+
+.pl-outline-account_circle:before {
+  content: "\e902";
+}
+
+.pl-outline-arrow_back_ios:before {
+  content: "\e903";
+}
+
+.pl-outline-arrow_forward_ios:before {
+  content: "\e904";
+}
+
+.pl-outline-dehaze:before {
+  content: "\e905";
+}
+
+.pl-outline-exit_to_app:before {
+  content: "\e906";
+}
+
+.pl-outline-favorite_border:before {
+  content: "\e907";
+}
+
+.pl-outline-favorite:before {
+  content: "\e908";
+}
+
+.pl-outline-keyboard_arrow_left:before {
+  content: "\e909";
+}
+
+.pl-outline-keyboard_arrow_right:before {
+  content: "\e90a";
+}
+
+.pl-outline-menu:before {
+  content: "\e90b";
+}
+
+.pl-outline-person_add:before {
+  content: "\e90c";
+}
+
+.pl-outline-person_outline:before {
+  content: "\e90d";
+}
+
+.pl-outline-shopping_basket:before {
+  content: "\e90e";
+}
+
+.pl-outline-shopping_cart:before {
+  content: "\e90f";
+}
+
+.pl-outline-star_border:before {
+  content: "\e910";
+}
+
+.pl-outline-star:before {
+  content: "\e911";
+}

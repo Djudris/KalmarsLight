@@ -1,0 +1,1461 @@
+[
+  {
+    "identifier": "Legend::B2bWidget",
+    "label": "Widget.b2bLabel",
+    "previewImageURL": "/images/widgets/grid-2-col.svg",
+    "type": "structure",
+    "categories": [
+      "legend"
+    ],
+    "allowedNestingTypes": [
+      "header", "footer", "static", "structure", "default"
+    ],
+    "position": 101,
+    "widgetClass": "Legend\\Widgets\\Grid\\B2bWidget",
+    "settings": {}
+  },
+  {
+    "identifier": "Legend::FullWidthWidget",
+    "label": "Widget.fullWidthLabel",
+    "previewImageURL": "/images/widgets/grid-2-col.svg",
+    "type": "structure",
+    "categories": [
+      "legend"
+    ],
+    "allowedNestingTypes": [
+      "header", "footer", "static", "structure", "default"
+    ],
+    "position": 100,
+    "widgetClass": "Legend\\Widgets\\Grid\\FullWidthWidget",
+    "settings": {
+      "customClass": {
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": {
+          "name": "Widget.customClass",
+          "tooltipText": "Widget.customClassTooltip"
+        }
+      },
+      "fullWidthStyle": {
+        "type": "select",
+        "required": true,
+        "defaultValue": "full",
+        "options": {
+          "name": "Widget.fullWidthFullWidthStyleLabel",
+          "tooltipText": "Widget.fullWidthFullWidthStyleLabel",
+          "listBoxValues": [
+            {
+              "value": "normal",
+              "caption": "Widget.fullWidthFullWidthStyleNormal",
+              "position": 0
+            },
+            {
+              "value": "bgOnly",
+              "caption": "Widget.fullWidthFullWidthStyleBgOnly",
+              "position": 0
+            },
+            {
+              "value": "full",
+              "caption": "Widget.fullWidthFullWidthStyleFull",
+              "position": 0
+            }
+          ]
+        }
+      },
+      "bgcolor": {
+        "type": "color",
+        "required": false,
+        "defaultValue": "#fff",
+        "options": {
+          "name": "Widget.fullWidthItemBgColorLabel",
+          "tooltipText": "Widget.fullWidthItemBgColorLabel"
+        }
+      }
+    }
+  },
+  {
+    "identifier": "Legend::TitleBarWidget",
+    "label": "Widget.titleBarLabel",
+    "previewImageURL": "/images/widgets/title-bar.svg",
+    "type": "static",
+    "categories": [
+      "legend"
+    ],
+    "position": 400,
+    "widgetClass": "Legend\\Widgets\\Common\\TitleBarWidget",
+    "settings": {
+      "customClass": {
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": {
+          "name": "Widget.customClass",
+          "tooltipText": "Widget.customClassTooltip"
+        }
+      },
+      "spacing": {
+        "type": "vertical",
+        "options": {
+          "name": "Widget.widgetSpacing"
+        },
+        "children": {
+          "customPadding": {
+            "type": "checkbox",
+            "options": {
+              "name": "Widget.widgetCustomPadding"
+            }
+          },
+          "padding": {
+            "type": "spacing",
+            "isVisible": "!!spacing.customPadding",
+            "options": {
+              "units": [
+                "px",
+                "rem"
+              ],
+              "direction": "all"
+            }
+          },
+          "customMargin": {
+            "type": "checkbox",
+            "options": {
+              "name": "Widget.widgetCustomMargin"
+            }
+          },
+          "margin": {
+            "type": "spacing",
+            "isVisible": "!!spacing.customMargin",
+            "options": {
+              "units": [
+                "px",
+                "rem"
+              ],
+              "direction": "all"
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "identifier": "Legend::ManufacturerWidget",
+    "label": "Widget.manufacturerLabel",
+    "previewImageURL": "/images/widgets/image-carousel.svg",
+    "type": "static",
+    "categories": [
+      "legend"
+    ],
+    "position": 0,
+    "widgetClass": "Legend\\Widgets\\Common\\ManufacturerWidget",
+    "settings": {
+      "customClass": {
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": {
+          "name": "Widget.customClass",
+          "tooltipText": "Widget.customClassTooltip"
+        }
+      },
+      "title": {
+        "type": "text",
+        "required": false,
+        "defaultValue": "HERSTELLER",
+        "options": {
+          "name": "Widget.manufacturerTitleLabel",
+          "tooltipText": "Widget.manufacturerTitleLabel"
+        }
+      },
+      "manufacturerIdsList": {
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": {
+          "name": "Widget.manufacturerIdsListLabel",
+          "tooltipText": "Widget.manufacturerIdsListTooltip"
+        }
+      },
+      "responsiveOne": {
+        "type": "number",
+        "required": false,
+        "defaultValue": 1,
+        "options": {
+          "name": "Widget.manufacturerResponsiveOneLabel",
+          "tooltipText": "Widget.manufacturerResponsiveOneLabel"
+        }
+      },
+      "responsiveTwo": {
+        "type": "number",
+        "required": false,
+        "defaultValue": 3,
+        "options": {
+          "name": "Widget.manufacturerResponsiveTwoLabel",
+          "tooltipText": "Widget.manufacturerResponsiveTwoLabel"
+        }
+      },
+      "responsiveThree": {
+        "type": "number",
+        "required": false,
+        "defaultValue": 6,
+        "options": {
+          "name": "Widget.manufacturerResponsiveThreeLabel",
+          "tooltipText": "Widget.manufacturerResponsiveThreeLabel"
+        }
+      }
+    }
+  },
+  {
+    "identifier": "Legend::SocialWidget",
+    "label": "Widget.socialLabel",
+    "previewImageURL": "/images/widgets/list.svg",
+    "type": "static",
+    "categories": [
+      "legend"
+    ],
+    "position": 900,
+    "widgetClass": "Legend\\Widgets\\Common\\SocialWidget",
+    "settings": {
+      "customClass": {
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": {
+          "name": "Widget.customClass",
+          "tooltipText": "Widget.customClassTooltip"
+        }
+      },
+      "title": {
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": {
+          "name": "Widget.socialTitleLabel",
+          "tooltipText": "Widget.socialTitleTooltip"
+        }
+      },
+      "facebook": {
+        "type": "text",
+        "required": false,
+        "defaultValue": "#",
+        "options": {
+          "name": "Widget.facebookTitleLabel",
+          "tooltipText": "Widget.facebookTitleLabel"
+        }
+      },
+      "twitter": {
+        "type": "text",
+        "required": false,
+        "defaultValue": "#",
+        "options": {
+          "name": "Widget.twitterTitleLabel",
+          "tooltipText": "Widget.twitterTitleLabel"
+        }
+      },
+      "youtube": {
+        "type": "text",
+        "required": false,
+        "defaultValue": "#",
+        "options": {
+          "name": "Widget.youtubeTitleLabel",
+          "tooltipText": "Widget.youtubeTitleLabel"
+        }
+      },
+      "instagram": {
+        "type": "text",
+        "required": false,
+        "defaultValue": "#",
+        "options": {
+          "name": "Widget.instagramTitleLabel",
+          "tooltipText": "Widget.instagramTitleLabel"
+        }
+      },
+      "pinterest": {
+        "type": "text",
+        "required": false,
+        "defaultValue": "#",
+        "options": {
+          "name": "Widget.pinterestTitleLabel",
+          "tooltipText": "Widget.pinterestTitleLabel"
+        }
+      },
+      "whatsapp": {
+        "type": "text",
+        "required": false,
+        "defaultValue": "#",
+        "options": {
+          "name": "Widget.whatsappTitleLabel",
+          "tooltipText": "Widget.whatsappTitleLabel"
+        }
+      }
+    }
+  },
+  {
+    "identifier": "Legend::ListWidget",
+    "label": "Widget.listLabel",
+    "previewImageURL": "/images/widgets/list.svg",
+    "type": "static",
+    "categories": [
+      "legend"
+    ],
+    "position": 900,
+    "widgetClass": "Legend\\Widgets\\Common\\ListWidget",
+    "settings": {
+      "customClass": {
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": {
+          "name": "Widget.customClass",
+          "tooltipText": "Widget.customClassTooltip"
+        }
+      },
+      "title": {
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": {
+          "name": "Widget.linkListTitleLabel",
+          "tooltipText": "Widget.linkListTitleTooltip"
+        }
+      },
+      "icon": {
+        "type": "select",
+        "required": true,
+        "defaultValue": "none",
+        "options": {
+          "name": "Widget.listIconLabel",
+          "tooltipText": "Widget.listIconTooltip",
+          "listBoxValues": [
+            {
+              "value": "none",
+              "caption": "Widget.widgetIconNone",
+              "position": 0
+            },
+            {
+              "value": "fa-check",
+              "caption": "Widget.widgetIconCheck",
+              "position": 1
+            },
+            {
+              "value": "fa-circle",
+              "caption": "Widget.widgetIconCircle",
+              "position": 1
+            },
+            {
+              "value": "fa-circle-thin",
+              "caption": "Widget.widgetIconCircleThin",
+              "position": 1
+            },
+            {
+              "value": "fa-comment-o",
+              "caption": "Widget.widgetIconComment",
+              "position": 1
+            },
+            {
+              "value": "fa-credit-card",
+              "caption": "Widget.widgetIconCreditcard",
+              "position": 1
+            },
+            {
+              "value": "fa-envelope-o",
+              "caption": "Widget.widgetIconEnvelope",
+              "position": 1
+            },
+            {
+              "value": "fa-heart",
+              "caption": "Widget.widgetIconHeart",
+              "position": 1
+            },
+            {
+              "value": "fa-thumbs-o-up",
+              "caption": "Widget.widgetIconThumbsUp",
+              "position": 1
+            },
+            {
+              "value": "fa-euro",
+              "caption": "Widget.widgetIconEuro",
+              "position": 1
+            },
+            {
+              "value": "fa-dollar",
+              "caption": "Widget.widgetIconDollar",
+              "position": 1
+            }
+          ]
+        }
+      },
+      "texts": {
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "isList": "[1,]",
+        "options": {
+          "name": "Widget.listTextLabel",
+          "tooltipText": "Widget.listTextTooltip"
+        }
+      }
+    }
+  },
+  {
+    "identifier": "Legend::LegalInformationWidget",
+    "label": "Widget.linkListLabel",
+    "previewImageURL": "/images/widgets/link-list.svg",
+    "type": "static",
+    "categories": [
+      "legend"
+    ],
+    "position": 0,
+    "widgetClass": "Legend\\Widgets\\Footer\\LegalInformationWidget",
+    "settings": {
+      "customClass": {
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": {
+          "name": "Widget.customClass",
+          "tooltipText": "Widget.customClassTooltip"
+        }
+      },
+      "title": {
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": {
+          "name": "Widget.linkListTitleLabel",
+          "tooltipText": "Widget.linkListTitleTooltip"
+        }
+      },
+      "icon": {
+        "type": "select",
+        "required": true,
+        "defaultValue": "none",
+        "options": {
+          "name": "Widget.linkListIconLabel",
+          "tooltipText": "Widget.linkListIconTooltip",
+          "listBoxValues": [
+            {
+              "value": "none",
+              "caption": "Widget.widgetIconNone",
+              "position": 0
+            },
+            {
+              "value": "fa-check",
+              "caption": "Widget.widgetIconCheck",
+              "position": 1
+            },
+            {
+              "value": "fa-circle",
+              "caption": "Widget.widgetIconCircle",
+              "position": 1
+            },
+            {
+              "value": "fa-circle-thin",
+              "caption": "Widget.widgetIconCircleThin",
+              "position": 1
+            },
+            {
+              "value": "fa-comment-o",
+              "caption": "Widget.widgetIconComment",
+              "position": 1
+            },
+            {
+              "value": "fa-credit-card",
+              "caption": "Widget.widgetIconCreditcard",
+              "position": 1
+            },
+            {
+              "value": "fa-envelope-o",
+              "caption": "Widget.widgetIconEnvelope",
+              "position": 1
+            },
+            {
+              "value": "fa-heart",
+              "caption": "Widget.widgetIconHeart",
+              "position": 1
+            },
+            {
+              "value": "fa-thumbs-o-up",
+              "caption": "Widget.widgetIconThumbsUp",
+              "position": 1
+            },
+            {
+              "value": "fa-euro",
+              "caption": "Widget.widgetIconEuro",
+              "position": 1
+            },
+            {
+              "value": "fa-dollar",
+              "caption": "Widget.widgetIconDollar",
+              "position": 1
+            }
+          ]
+        }
+      },
+      "entries": {
+        "type": "vertical",
+        "isList": "[1,]",
+        "options": {
+          "name": "Widget.linkListEntryLabel"
+        },
+        "children": {
+          "text": {
+            "type": "text",
+            "required": false,
+            "options": {
+              "name": "Widget.linkListEntryNameLabel",
+              "tooltipText": "Widget.linkListEntryNameTooltip"
+            }
+          },
+          "url": {
+            "type": "text",
+            "required": false,
+            "options": {
+              "name": "Widget.linkListEntryUrlLabel",
+              "tooltipText": "Widget.linkListEntryUrlTooltip"
+            }
+          }
+        }
+      },
+      "showCancellationRights": {
+        "type": "checkbox",
+        "required": true,
+        "defaultValue": true,
+        "options": {
+          "name": "Widget.legalInformationShowCancellationLabel"
+        }
+      },
+      "showLegalDisclosure": {
+        "type": "checkbox",
+        "required": true,
+        "defaultValue": true,
+        "options": {
+          "name": "Widget.legalInformationShowLegalDisclosureLabel"
+        }
+      },
+      "showPrivacyPolicy": {
+        "type": "checkbox",
+        "required": true,
+        "defaultValue": true,
+        "options": {
+          "name": "Widget.legalInformationShowPrivacyPolicyLabel"
+        }
+      },
+      "showGtc": {
+        "type": "checkbox",
+        "required": true,
+        "defaultValue": true,
+        "options": {
+          "name": "Widget.legalInformationShowGtcLabel"
+        }
+      },
+      "cancellationFormContainer": {
+        "type": "vertical",
+        "required": false,
+        "options": {
+          "name": "Widget.legalInformationCancellationFormContainerLabel"
+        },
+        "children": {
+          "showCancellationForm": {
+            "type": "checkbox",
+            "required": true,
+            "defaultValue": true,
+            "options": {
+              "name": "Widget.legalInformationShowCancellationFormLabel"
+            }
+          },
+          "useCancellationPdfUpload": {
+            "type": "checkbox",
+            "required": true,
+            "defaultValue": false,
+            "options": {
+              "name": "Widget.legalInformationCancellationPdfActiveLabel"
+            }
+          },
+          "cancellationPdfPath": {
+            "type": "file",
+            "required": false,
+            "defaultValue": "",
+            "options": {
+              "name": "Widget.legalInformationCancellationPdfUploadLabel",
+              "tooltipText": "Widget.legalInformationCancellationPdfUploadTooltip"
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "identifier": "Legend::FormWidget",
+    "label": "Widget.formLabel",
+    "previewImageURL": "/images/widgets/newsletter.svg",
+    "type": "structure",
+    "categories": [
+      "legend-contact-form"
+    ],
+    "allowedNestingTypes": [
+      "static", "structure", "default"
+    ],
+    "position": 1,
+    "widgetClass": "Legend\\Widgets\\ContactForm\\FormWidget",
+    "settings": {
+      "customClass": {
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": {
+          "name": "Widget.customClass",
+          "tooltipText": "Widget.customClassTooltip"
+        }
+      },
+      "recipient": {
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": {
+          "name": "Widget.inputRecipientLabel",
+          "tooltipText": "Widget.inputRecipientLabel"
+        }
+      },
+      "subject": {
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": {
+          "name": "Widget.inputSubjectLabel",
+          "tooltipText": "Widget.inputSubjectLabel"
+        }
+      }
+    }
+  },
+  {
+    "identifier": "Legend::InputWidget",
+    "label": "Widget.inputLabel",
+    "previewImageURL": "/images/widgets/newsletter.svg",
+    "type": "static",
+    "categories": [
+      "legend-contact-form"
+    ],
+    "position": 2,
+    "widgetClass": "Legend\\Widgets\\ContactForm\\InputWidget",
+    "settings": {
+      "title": {
+        "type": "text",
+        "required": false,
+        "defaultValue": "Input",
+        "options": {
+          "name": "Widget.contactFormTitleLabel",
+          "tooltipText": "Widget.contactFormTitleLabel"
+        }
+      },
+      "name": {
+        "type": "text",
+        "required": false,
+        "defaultValue": "input",
+        "options": {
+          "name": "Widget.contactFormNameLabel",
+          "tooltipText": "Widget.contactFormNameLabel"
+        }
+      },
+      "placeholder": {
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": {
+          "name": "Widget.contactFormPlaceholderLabel",
+          "tooltipText": "Widget.contactFormPlaceholderLabel"
+        }
+      },
+      "required": {
+        "type": "checkbox",
+        "required": true,
+        "defaultValue": false,
+        "options": {
+          "name": "Widget.contactFormRequiredLabel"
+        }
+      }
+    }
+  },
+  {
+    "identifier": "Legend::TextAreaWidget",
+    "label": "Widget.textAreaLabel",
+    "previewImageURL": "/images/widgets/newsletter.svg",
+    "type": "static",
+    "categories": [
+      "legend-contact-form"
+    ],
+    "position": 3,
+    "widgetClass": "Legend\\Widgets\\ContactForm\\TextAreaWidget",
+    "settings": {
+      "title": {
+        "type": "text",
+        "required": false,
+        "defaultValue": "TextArea",
+        "options": {
+          "name": "Widget.contactFormTitleLabel",
+          "tooltipText": "Widget.contactFormTitleLabel"
+        }
+      },
+      "name": {
+        "type": "text",
+        "required": false,
+        "defaultValue": "textarea",
+        "options": {
+          "name": "Widget.contactFormNameLabel",
+          "tooltipText": "Widget.contactFormNameLabel"
+        }
+      },
+      "placeholder": {
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": {
+          "name": "Widget.contactFormPlaceholderLabel",
+          "tooltipText": "Widget.contactFormPlaceholderLabel"
+        }
+      },
+      "required": {
+        "type": "checkbox",
+        "required": true,
+        "defaultValue": false,
+        "options": {
+          "name": "Widget.contactFormRequiredLabel"
+        }
+      }
+    }
+  },
+  {
+    "identifier": "Legend::CheckboxWidget",
+    "label": "Widget.checkboxLabel",
+    "previewImageURL": "/images/widgets/newsletter.svg",
+    "type": "static",
+    "categories": [
+      "legend-contact-form"
+    ],
+    "position": 4,
+    "widgetClass": "Legend\\Widgets\\ContactForm\\CheckboxWidget",
+    "settings": {
+      "title": {
+        "type": "text",
+        "required": false,
+        "defaultValue": "Checkbox Group",
+        "options": {
+          "name": "Widget.contactFormTitleLabel",
+          "tooltipText": "Widget.contactFormTitleLabel"
+        }
+      },
+      "entries": {
+        "type": "vertical",
+        "isList": "[1,]",
+        "options": {
+          "name": "Widget.selectEntryLabel"
+        },
+        "children": {
+          "title": {
+            "type": "text",
+            "required": false,
+            "options": {
+              "name": "Widget.contactFormTitleLabel",
+              "tooltipText": "Widget.contactFormTitleLabel"
+            }
+          },
+          "name": {
+            "type": "text",
+            "required": false,
+            "options": {
+              "name": "Widget.contactFormNameLabel",
+              "tooltipText": "Widget.contactFormNameLabel"
+            }
+          },
+          "required": {
+            "type": "checkbox",
+            "required": true,
+            "defaultValue": false,
+            "options": {
+              "name": "Widget.contactFormRequiredLabel"
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "identifier": "Legend::RadioboxWidget",
+    "label": "Widget.radioboxLabel",
+    "previewImageURL": "/images/widgets/newsletter.svg",
+    "type": "static",
+    "categories": [
+      "legend-contact-form"
+    ],
+    "position": 5,
+    "widgetClass": "Legend\\Widgets\\ContactForm\\RadioboxWidget",
+    "settings": {
+      "title": {
+        "type": "text",
+        "required": false,
+        "defaultValue": "Radio Group",
+        "options": {
+          "name": "Widget.contactFormTitleLabel",
+          "tooltipText": "Widget.contactFormTitleLabel"
+        }
+      },
+      "name": {
+        "type": "text",
+        "required": false,
+        "defaultValue": "radiobox",
+        "options": {
+          "name": "Widget.contactFormNameLabel",
+          "tooltipText": "Widget.contactFormNameLabel"
+        }
+      },
+      "entries": {
+        "type": "vertical",
+        "isList": "[1,]",
+        "options": {
+          "name": "Widget.selectEntryLabel"
+        },
+        "children": {
+          "title": {
+            "type": "text",
+            "required": false,
+            "options": {
+              "name": "Widget.contactFormTitleLabel",
+              "tooltipText": "Widget.contactFormTitleLabel"
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "identifier": "Legend::CCcopyWidget",
+    "label": "Widget.ccCopyLabel",
+    "previewImageURL": "/images/widgets/newsletter.svg",
+    "type": "static",
+    "categories": [
+      "legend-contact-form"
+    ],
+    "position": 6,
+    "widgetClass": "Legend\\Widgets\\ContactForm\\CCcopyWidget",
+    "settings": {
+      "title": {
+        "type": "text",
+        "required": false,
+        "defaultValue": "Copy to me",
+        "options": {
+          "name": "Widget.contactFormTitleLabel",
+          "tooltipText": "Widget.contactFormTitleLabel"
+        }
+      }
+    }
+  },
+  {
+    "identifier": "Legend::PrivacyPolicyWidget",
+    "label": "Widget.privacyPolicyLabel",
+    "previewImageURL": "/images/widgets/newsletter.svg",
+    "type": "static",
+    "categories": [
+      "legend-contact-form"
+    ],
+    "position": 7,
+    "widgetClass": "Legend\\Widgets\\ContactForm\\PrivacyPolicyWidget",
+    "settings": {
+      "title": {
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": {
+          "name": "Widget.contactFormTitleLabel",
+          "tooltipText": "Widget.contactFormTitleLabel"
+        }
+      }
+    }
+  },
+  {
+    "identifier": "Legend::UserMailWidget",
+    "label": "Widget.userMailLabel",
+    "previewImageURL": "/images/widgets/newsletter.svg",
+    "type": "static",
+    "categories": [
+      "legend-contact-form"
+    ],
+    "position": 8,
+    "widgetClass": "Legend\\Widgets\\ContactForm\\UserMailWidget",
+    "settings": {
+      "title": {
+        "type": "text",
+        "required": false,
+        "defaultValue": "E-mail",
+        "options": {
+          "name": "Widget.contactFormTitleLabel",
+          "tooltipText": "Widget.contactFormTitleLabel"
+        }
+      },
+      "placeholder": {
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": {
+          "name": "Widget.contactFormPlaceholderLabel",
+          "tooltipText": "Widget.contactFormPlaceholderLabel"
+        }
+      }
+    }
+  },
+  {
+    "identifier": "Legend::SelectWidget",
+    "label": "Widget.selectLabel",
+    "previewImageURL": "/images/widgets/newsletter.svg",
+    "type": "static",
+    "categories": [
+      "legend-contact-form"
+    ],
+    "position": 9,
+    "widgetClass": "Legend\\Widgets\\ContactForm\\SelectWidget",
+    "settings": {
+      "title": {
+        "type": "text",
+        "required": false,
+        "defaultValue": "Select",
+        "options": {
+          "name": "Widget.contactFormTitleLabel",
+          "tooltipText": "Widget.contactFormTitleLabel"
+        }
+      },
+      "name": {
+        "type": "text",
+        "required": false,
+        "defaultValue": "select",
+        "options": {
+          "name": "Widget.contactFormNameLabel",
+          "tooltipText": "Widget.contactFormNameLabel"
+        }
+      },
+      "placeholder": {
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": {
+          "name": "Widget.contactFormPlaceholderLabel",
+          "tooltipText": "Widget.contactFormPlaceholderLabel"
+        }
+      },
+      "required": {
+        "type": "checkbox",
+        "required": true,
+        "defaultValue": false,
+        "options": {
+          "name": "Widget.contactFormRequiredLabel"
+        }
+      },
+      "entries": {
+        "type": "vertical",
+        "isList": "[1,]",
+        "options": {
+          "name": "Widget.selectEntryLabel"
+        },
+        "children": {
+          "text": {
+            "type": "text",
+            "required": false,
+            "options": {
+              "name": "Widget.selectEntryNameLabel",
+              "tooltipText": "Widget.selectEntryNameLabel"
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "identifier": "Legend::SubmitButtonWidget",
+    "label": "Widget.submitButtonLabel",
+    "previewImageURL": "/images/widgets/newsletter.svg",
+    "type": "static",
+    "categories": [
+      "legend-contact-form"
+    ],
+    "position": 10,
+    "widgetClass": "Legend\\Widgets\\ContactForm\\SubmitButtonWidget",
+    "settings": {
+      "title": {
+        "type": "text",
+        "required": false,
+        "defaultValue": "Submit",
+        "options": {
+          "name": "Widget.contactFormTitleLabel",
+          "tooltipText": "Widget.contactFormTitleLabel"
+        }
+      }
+    }
+  },
+  {
+    "identifier": "Legend::LatestBlogPostsWidget",
+    "label": "Widget.latestBlogPostsLabel",
+    "previewImageURL": "/images/widgets/item-list.svg",
+    "type": "static",
+    "categories": [
+      "legend"
+    ],
+    "position": 2,
+    "widgetClass": "Legend\\Widgets\\Common\\LatestBlogPostsWidget",
+    "settings": {
+      "customClass": {
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": {
+          "name": "Widget.customClass",
+          "tooltipText": "Widget.customClassTooltip"
+        }
+      },
+      "categoryId": {
+        "type": "category",
+        "required": false,
+        "defaultValue": "",
+        "options": {
+          "name": "Widget.latestsBlogPostsCategoryIdLabel",
+          "tooltipText": "Widget.latestsBlogPostsCategoryIdLabel"
+        }
+      },
+      "maxItems": {
+        "type": "number",
+        "required": true,
+        "defaultValue": "6",
+        "options": {
+          "name": "Widget.latestsBlogPostsMaxItemsLabel",
+          "tooltipText": "Widget.latestsBlogPostsMaxItemsLabel"
+        }
+      },
+      "itemsPerPage": {
+        "type": "text",
+        "required": true,
+        "defaultValue": "3",
+        "options": {
+          "name": "Widget.latestsBlogPostsItemsPerPageLabel",
+          "tooltipText": "Widget.latestsBlogPostsItemsPerPageTooltip"
+        }
+      },
+      "itemsPerPageLg": {
+        "type": "text",
+        "required": true,
+        "defaultValue": "3",
+        "options": {
+          "name": "Widget.latestsBlogPostsItemsPerPageLabelLg",
+          "tooltipText": "Widget.latestsBlogPostsItemsPerPageLabelLg"
+        }
+      },
+      "itemsPerPageMd": {
+        "type": "text",
+        "required": true,
+        "defaultValue": "2",
+        "options": {
+          "name": "Widget.latestsBlogPostsItemsPerPageLabelMd",
+          "tooltipText": "Widget.latestsBlogPostsItemsPerPageLabelMd"
+        }
+      },
+      "itemsPerPageSm": {
+        "type": "text",
+        "required": true,
+        "defaultValue": "2",
+        "options": {
+          "name": "Widget.latestsBlogPostsItemsPerPageLabelSm",
+          "tooltipText": "Widget.latestsBlogPostsItemsPerPageLabelSm"
+        }
+      },
+      "itemsPerPageXs": {
+        "type": "text",
+        "required": true,
+        "defaultValue": "1",
+        "options": {
+          "name": "Widget.latestsBlogPostsItemsPerPageLabelXs",
+          "tooltipText": "Widget.latestsBlogPostsItemsPerPageLabelXs"
+        }
+      },
+      "customPadding": {
+        "type": "checkbox",
+        "options": {
+          "name": "Widget.widgetCustomPadding"
+        }
+      },
+      "padding": {
+        "type": "spacing",
+        "isVisible": "!!customPadding",
+        "options": {
+          "units": [
+            "px",
+            "rem"
+          ],
+          "direction": "all"
+        }
+      },
+      "customMargin": {
+        "type": "checkbox",
+        "options": {
+          "name": "Widget.widgetCustomMargin"
+        }
+      },
+      "margin": {
+        "type": "spacing",
+        "isVisible": "!!customMargin",
+        "options": {
+          "units": [
+            "px",
+            "rem"
+          ],
+          "direction": "all"
+        }
+      }
+    }
+  },
+  {
+    "identifier": "Legend::GridWidget",
+    "label": "Widget.gridWidgetLabel",
+    "previewImageURL": "/images/widgets/grid-4-col.svg",
+    "type": "structure",
+    "categories": [
+      "legend"
+    ],
+    "position": 300,
+    "widgetClass": "Legend\\Widgets\\Grid\\GridWidget",
+    "settings": {
+      "customClass": {
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": {
+          "name": "Widget.customClass",
+          "tooltipText": "Widget.customClassTooltip"
+        }
+      },
+      "entries": {
+        "type": "vertical",
+        "isList": "[1,]",
+        "defaultValue": [
+          {
+            "uuid": "3a0ca715-ff40-4446-8393-07f663ce45a2"
+          }
+        ],
+        "options": {
+          "name": "Widget.gridEntryLabel"
+        },
+        "children": {
+          "uuid": {
+            "type": "uuid"
+          },
+          "manualClasses": {
+            "type": "checkbox",
+            "defaultValue": false,
+            "options": {
+              "name": "Widget.gridEntryManualClassesLabel",
+              "tooltipText": "Widget.gridEntryManualClassesLabel"
+            }
+          },
+          "classes": {
+            "type": "text",
+            "required": false,
+            "options": {
+              "name": "Widget.gridEntryClassesLabel",
+              "tooltipText": "Widget.gridEntryClassesLabel"
+            }
+          },
+          "xs": {
+            "type": "select",
+            "required": false,
+            "defaultValue": 12,
+            "options": {
+              "name": "Widget.gridXSLayoutLabel",
+              "tooltipText": "Widget.gridXSLayoutLabel",
+              "listBoxValues": [
+                {
+                  "value": 1,
+                  "caption": "Widget.gridLayout1"
+                },
+                {
+                  "value": 2,
+                  "caption": "Widget.gridLayout2"
+                },
+                {
+                  "value": 3,
+                  "caption": "Widget.gridLayout3"
+                },
+                {
+                  "value": 4,
+                  "caption": "Widget.gridLayout4"
+                },
+                {
+                  "value": 5,
+                  "caption": "Widget.gridLayout5"
+                },
+                {
+                  "value": 6,
+                  "caption": "Widget.gridLayout6"
+                },
+                {
+                  "value": 7,
+                  "caption": "Widget.gridLayout7"
+                },
+                {
+                  "value": 8,
+                  "caption": "Widget.gridLayout8"
+                },
+                {
+                  "value": 9,
+                  "caption": "Widget.gridLayout9"
+                },
+                {
+                  "value": 10,
+                  "caption": "Widget.gridLayout10"
+                },
+                {
+                  "value": 11,
+                  "caption": "Widget.gridLayout11"
+                },
+                {
+                  "value": 12,
+                  "caption": "Widget.gridLayout12"
+                }
+              ]
+            }
+          },
+          "sm": {
+            "type": "select",
+            "required": false,
+            "defaultValue": 12,
+            "options": {
+              "name": "Widget.gridSMLayoutLabel",
+              "tooltipText": "Widget.gridSMLayoutLabel",
+              "listBoxValues": [
+                {
+                  "value": 1,
+                  "caption": "Widget.gridLayout1"
+                },
+                {
+                  "value": 2,
+                  "caption": "Widget.gridLayout2"
+                },
+                {
+                  "value": 3,
+                  "caption": "Widget.gridLayout3"
+                },
+                {
+                  "value": 4,
+                  "caption": "Widget.gridLayout4"
+                },
+                {
+                  "value": 5,
+                  "caption": "Widget.gridLayout5"
+                },
+                {
+                  "value": 6,
+                  "caption": "Widget.gridLayout6"
+                },
+                {
+                  "value": 7,
+                  "caption": "Widget.gridLayout7"
+                },
+                {
+                  "value": 8,
+                  "caption": "Widget.gridLayout8"
+                },
+                {
+                  "value": 9,
+                  "caption": "Widget.gridLayout9"
+                },
+                {
+                  "value": 10,
+                  "caption": "Widget.gridLayout10"
+                },
+                {
+                  "value": 11,
+                  "caption": "Widget.gridLayout11"
+                },
+                {
+                  "value": 12,
+                  "caption": "Widget.gridLayout12"
+                }
+              ]
+            }
+          },
+          "md": {
+            "type": "select",
+            "required": false,
+            "defaultValue": 12,
+            "options": {
+              "name": "Widget.gridMDLayoutLabel",
+              "tooltipText": "Widget.gridMDLayoutLabel",
+              "listBoxValues": [
+                {
+                  "value": 1,
+                  "caption": "Widget.gridLayout1"
+                },
+                {
+                  "value": 2,
+                  "caption": "Widget.gridLayout2"
+                },
+                {
+                  "value": 3,
+                  "caption": "Widget.gridLayout3"
+                },
+                {
+                  "value": 4,
+                  "caption": "Widget.gridLayout4"
+                },
+                {
+                  "value": 5,
+                  "caption": "Widget.gridLayout5"
+                },
+                {
+                  "value": 6,
+                  "caption": "Widget.gridLayout6"
+                },
+                {
+                  "value": 7,
+                  "caption": "Widget.gridLayout7"
+                },
+                {
+                  "value": 8,
+                  "caption": "Widget.gridLayout8"
+                },
+                {
+                  "value": 9,
+                  "caption": "Widget.gridLayout9"
+                },
+                {
+                  "value": 10,
+                  "caption": "Widget.gridLayout10"
+                },
+                {
+                  "value": 11,
+                  "caption": "Widget.gridLayout11"
+                },
+                {
+                  "value": 12,
+                  "caption": "Widget.gridLayout12"
+                }
+              ]
+            }
+          },
+          "lg": {
+            "type": "select",
+            "required": false,
+            "defaultValue": 12,
+            "options": {
+              "name": "Widget.gridLGLayoutLabel",
+              "tooltipText": "Widget.gridLGLayoutLabel",
+              "listBoxValues": [
+                {
+                  "value": 1,
+                  "caption": "Widget.gridLayout1"
+                },
+                {
+                  "value": 2,
+                  "caption": "Widget.gridLayout2"
+                },
+                {
+                  "value": 3,
+                  "caption": "Widget.gridLayout3"
+                },
+                {
+                  "value": 4,
+                  "caption": "Widget.gridLayout4"
+                },
+                {
+                  "value": 5,
+                  "caption": "Widget.gridLayout5"
+                },
+                {
+                  "value": 6,
+                  "caption": "Widget.gridLayout6"
+                },
+                {
+                  "value": 7,
+                  "caption": "Widget.gridLayout7"
+                },
+                {
+                  "value": 8,
+                  "caption": "Widget.gridLayout8"
+                },
+                {
+                  "value": 9,
+                  "caption": "Widget.gridLayout9"
+                },
+                {
+                  "value": 10,
+                  "caption": "Widget.gridLayout10"
+                },
+                {
+                  "value": 11,
+                  "caption": "Widget.gridLayout11"
+                },
+                {
+                  "value": 12,
+                  "caption": "Widget.gridLayout12"
+                }
+              ]
+            }
+          },
+          "xl": {
+            "type": "select",
+            "required": false,
+            "defaultValue": 12,
+            "options": {
+              "name": "Widget.gridXLLayoutLabel",
+              "tooltipText": "Widget.gridXLLayoutLabel",
+              "listBoxValues": [
+                {
+                  "value": 1,
+                  "caption": "Widget.gridLayout1"
+                },
+                {
+                  "value": 2,
+                  "caption": "Widget.gridLayout2"
+                },
+                {
+                  "value": 3,
+                  "caption": "Widget.gridLayout3"
+                },
+                {
+                  "value": 4,
+                  "caption": "Widget.gridLayout4"
+                },
+                {
+                  "value": 5,
+                  "caption": "Widget.gridLayout5"
+                },
+                {
+                  "value": 6,
+                  "caption": "Widget.gridLayout6"
+                },
+                {
+                  "value": 7,
+                  "caption": "Widget.gridLayout7"
+                },
+                {
+                  "value": 8,
+                  "caption": "Widget.gridLayout8"
+                },
+                {
+                  "value": 9,
+                  "caption": "Widget.gridLayout9"
+                },
+                {
+                  "value": 10,
+                  "caption": "Widget.gridLayout10"
+                },
+                {
+                  "value": 11,
+                  "caption": "Widget.gridLayout11"
+                },
+                {
+                  "value": 12,
+                  "caption": "Widget.gridLayout12"
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+]

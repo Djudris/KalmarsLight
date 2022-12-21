@@ -1,0 +1,24 @@
+{
+  "version"          : "5.0.55",
+  "license"          : "AGPL-3.0",
+  "name"             : "KalmarsLight",
+  "marketplaceName"  : {"de":"KalmarsLight","en":"KalmarsLight"},
+  "pluginIcon"       : "icon_plugin_xs.png",
+  "authorIcon"       : "icon_author_xs.png",
+  "email"            : "info@plentylions.de",
+  "description"      : "A KalmarsLight theme for Ceres. Development started with 2.13.0 Ceres.",
+  "shortDescription" : { "de": "Ein KalmarsLight-Theme für Ceres.", "en": "A KalmarsLight theme for Ceres." },
+  "namespace"        : "KalmarsLight",
+  "author"           : "Plenty Lions GmbH",
+  "keywords"         : ["plentymarkets", "plugins", "layout", "theme", "ceres"],
+  "price"            : 0,
+  "categories"       : [3518],
+  "type"             : "theme",
+  "require"          : {
+    "Ceres": ">= 5.0.55"
+  },
+  "platform": {
+    "php": ">=7.3 <8.1"
+  },
+  "serviceProvider" : "KalmarsLight\\Providers\\KalmarsLightServiceProvider"
+}

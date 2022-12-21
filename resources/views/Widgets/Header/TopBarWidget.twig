@@ -1,0 +1,236 @@
+{% import "Ceres::Widgets.Helper.TwigBuilder" as Twig %}
+{% import "Ceres::Widgets.Helper.WidgetHelper" as WidgetHelper %}
+
+{% set customClass                  = widget.settings.customClass.mobile %}
+{% set enableLogin                  = widget.settings.enableLogin.mobile %}
+{% set enableRegistration           = widget.settings.enableRegistration.mobile %}
+{% set enableLanguageSelect         = widget.settings.enableLanguageSelect.mobile %}
+{% set enableShippingCountrySelect  = widget.settings.enableShippingCountrySelect.mobile %}
+{% set enableCurrencySelect         = widget.settings.enableCurrencySelect.mobile %}
+{% set enableWishList               = widget.settings.enableWishList.mobile %}
+{% set enableBasketPreview          = widget.settings.enableBasketPreview.mobile %}
+{% set basketValues                 = widget.settings.basketValues.mobile %}
+
+{% set customHtml = widget.settings.customHtml.mobile %}
+{% set showLanguageSelectFlags = widget.settings.showLanguageSelectFlags.mobile %}
+
+{{ Twig.import("LayoutContainer", "Ceres::PageDesign.Macros.LayoutContainer") }}
+{{ Twig.set("currencyFormat", Twig.call("config", ["Ceres.currency.format"])) }}
+{{ Twig.set("currencyFormatSelect", Twig.call("config", ["Ceres.currency.format_selection"])) }}
+{{ Twig.set("currencyData", Twig.call("services.checkout.getCurrencyData") ~ "[currencyFormat]") }}
+{{ Twig.set("activeCurrencies", Twig.call("config", ["Ceres.currency.available_currencies"]) ~ " | split(\", \")") }}
+{{ Twig.set("defaultLanguage", "webstoreConfig.defaultLanguage") }}
+
+<div class="top-bar header-fw unfixed{% if customClass | length > 0 %} {{ customClass }}{% endif %}">
+    <div class="container-max px-0 pr-lg-3">
+        <div class="row mx-0 flex-row-reverse position-relative">
+            {% if isPreview and not
+                enableLogin and not
+                enableRegistration and not
+                enableLanguageSelect and not
+                enableShippingCountrySelect and not
+                enableCurrencySelect and not
+                enableWishList and not
+                enableBasketPreview and
+                searchStyle == "hidden"
+            %}
+                <div class="widget-placeholder p-0 w-100 text-dark">
+                    <div>
+                        <p class="title">{{ Twig.trans("Ceres::Widget.topBarPlaceholderTitle") }}</p>
+                        <p class="description">{{ Twig.trans("Ceres::Widget.topBarPlaceholderDescription") }}</p>
+                    </div>
+                </div>
+            {% endif %}
+            <div class="top-bar-items col-12 d-flex align-items-center">
+                <ul id="controlsListLeft" class="controls-list list-inline">
+                    {% if enableLanguageSelect or enableShippingCountrySelect %}
+                        <li class="list-inline-item dropdown control-languages">
+                            <a class="nav-link"
+                               data-toggle="collapse"
+                               href="#countrySettings"
+                               aria-expanded="false"
+                               aria-controls="countrySettings"
+                               data-parent="#controlsList"
+                               aria-label="{{ Twig.print('trans("Ceres::Template.headerCountry")') }}">
+                                {% if showLanguageSelectFlags %}
+                                    <i class="flag-icon flag-icon-{{ Twig.print('lang') }}"></i>
+                                {% else %}
+                                    <span class="pl-material pl-baseline-language"></span>
+                                {% endif %}
+                            </a>
+                        </li>
+                    {% endif %}
+
+                    {% if enableCurrencySelect %}
+                        <li class="list-inline-item dropdown control-languages">
+                            <a class="nav-link"
+                               data-toggle="collapse"
+                               href="#currencySelect"
+                               aria-expanded="false"
+                               aria-controls="currencySelect"
+                               data-parent="#controlsList"
+                               aria-label="{{ Twig.print('trans("Ceres::Template.headerCurrency")') }}">
+                                <span>{{ Twig.print("currencyData") }}</span>
+                            </a>
+                        </li>
+                    {% endif %}
+                </ul>
+
+                {% if customHtml | trim is not empty %}
+                    <div class="header-custom-html d-none d-lg-block">
+                        {{ customHtml | raw }}
+                    </div>
+                {% endif %}
+
+                {{ Twig.print(Twig.call("LayoutContainer.show", ["Ceres::Header.LeftSide"])) }}
+
+                <ul id="controlsList" class="controls-list list-inline">
+                    {% if enableLogin or enableRegistration %}
+                        <li class="list-inline-item control-user">
+                            <client-only>
+                                <user-login-handler
+                                        :show-login="{{ enableLogin | json_encode }}"
+                                        :show-registration="{{ enableRegistration | json_encode }}">
+                                    {% if enableLogin %}
+                                        <a class="nav-link" data-toggle="modal" aria-label="{{ Twig.print('trans("Ceres::Template.login")') }}">
+                                            <span class="pl-material pl-outline-exit_to_app"></span>
+                                            <span class="d-none d-md-inline">{{ Twig.print('trans("Ceres::Template.login")') }}</span>
+                                        </a>
+                                    {% endif %}
+                                    {% if enableRegistration %}
+                                        <a class="nav-link" data-toggle="modal" aria-label="{{ Twig.print('trans("Ceres::Template.loginRegister")') }}">
+                                            <span class="pl-material pl-outline-person_add"></span>
+                                            <span class="d-none d-md-inline">{{ Twig.print('trans("Ceres::Template.loginRegister")') }}</span>
+                                        </a>
+                                    {% endif %}
+                                </user-login-handler>
+                            </client-only>
+                        </li>
+                    {% endif %}
+                    {% if enableWishList %}
+                        {{ Twig.if("services.url.isRouteEnabled(\"wish-list\")") }}
+                        <li class="list-inline-item control-wish-list">
+                            <lazy-hydrate when-idle>
+                                <wish-list-count>
+                                    <a class="nav-link" aria-label="{{ Twig.print('trans("Ceres::Template.wishList")') }}">
+                                        <span class="pl-material pl-outline-favorite_border"></span>
+                                        <span class="d-none d-md-inline">{{ Twig.print('trans("Ceres::Template.wishList")') }}</span>
+                                    </a>
+                                </wish-list-count>
+                            </lazy-hydrate>
+                        </li>
+                        {{ Twig.endif() }}
+                    {% endif %}
+                </ul>
+                <ul id="controlsListRight" class="controls-list d-lg-none list-inline text-right">
+                    {% if enableBasketPreview %}
+                        <li class="list-inline-item control-basket">
+                            <a v-toggle-basket-preview href="#" class="toggle-basket-preview{% if basketValues != "sum" %} badge-abs{% endif %}">
+                                {% if basketValues != "sum" %}
+                                    <span class="badge-right" v-basket-item-quantity="$store.state.basket.data.itemQuantity">0</span>
+                                {% endif %}
+
+                                <span class="pl-material pl-outline-shopping_cart"></span>
+                                {% if basketValues != "quantity" %}
+                                    <span class="badge" v-if="!$store.state.basket.showNetPrices" v-basket-item-sum="$store.state.basket.data.itemSum">0,00 {{ Twig.print("currencyData") }}</span>
+                                    <span class="badge" v-else v-cloak v-basket-item-sum="$store.state.basket.data.itemSumNet">0,00 {{ Twig.print("currencyData") }}</span>
+                                {% endif %}
+                            </a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-max px-0 px-lg-3">
+        <div class="row mx-0 flex-row-reverse position-relative">
+            {% if enableCurrencySelect and not isPreview %}
+                <div id="currencySelect" class="cmp cmp-currency-select collapse">
+                    <div class="container-max">
+                        <div class="row py-3">
+                            <div class="currency-list col-12">
+                                <div class="list-title">
+                                    <strong>{{ Twig.print('trans("Ceres::Template.headerCurrency")') }}</strong>
+                                    <hr>
+                                </div>
+                                <ul class="row text-center text-sm-left">
+                                    {{ Twig.set("activeCurrency", Twig.call("services.checkout.getCurrencyData")) }}
+                                    {{ Twig.for("currency", Twig.call("services.checkout.getCurrencyList")) }}
+                                    {{ Twig.if("currency.name in activeCurrencies or \"all\" in activeCurrencies or currency.name == activeCurrency.name") }}
+                                    <li class="col-2 px-0{{ Twig.if("currency.name == activeCurrency.name") }} active{{ Twig.endif() }}">
+                                        <a class="nav-link" href="{{ Twig.print("queryString({currency: currency.name})") }}" rel="nofollow">
+                                            {{ Twig.if("currencyFormatSelect == 'all'") }}
+                                            {{ Twig.print("currency.name") }} <br class="d-block d-sm-none" />({{ Twig.print("currency.symbol") }})
+                                            {{ Twig.else() }}
+                                            {{ Twig.print("currency[currencyFormatSelect]") }}
+                                            {{ Twig.endif }}
+                                        </a>
+                                    </li>
+                                    {{ Twig.endif() }}
+                                    {{ Twig.endfor() }}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+
+            {% if enableLanguageSelect or enableShippingCountrySelect %}
+                <div id="countrySettings" class="cmp cmp-country-settings collapse">
+                    <div class="container-max">
+                        <div class="row py-3">
+                            {% if enableLanguageSelect and not isPreview %}
+                                <div class="col-12 {% if enableShippingCountrySelect %}col-lg-6{% else %}col-lg-12{% endif %}">
+                                    {{ Twig.do("cacheslot languageSelect") }}
+                                    <div class="language-settings">
+                                        <div class="list-title">
+                                            <strong>{{ Twig.print('trans("Ceres::Template.headerSelectLanguage")') }}</strong>
+                                            <hr>
+                                        </div>
+                                        {{ Twig.set("languageList", Twig.call("services.webstoreConfigurationRepository.getActiveLanguageList")) }}
+                                        {{ Twig.set("languageUrls", Twig.call("services.url.getLanguageURLs")) }}
+                                        <ul class="row">
+                                            {{ Twig.for("language", "languageList") }}
+                                            {{ Twig.set("languageISO", "services.localizationRepository.getLanguageCode(language)") }}
+                                            <li class="col-6 col-sm-4 px-0{{ Twig.if("lang == language") }} active{{ Twig.endif() }}">
+                                                {{ Twig.set("url", "'/'") }}
+                                                {{ Twig.if("languageUrls[languageISO] is defined") }}
+                                                {{ Twig.set("url", "languageUrls[languageISO] ~ queryString") }}
+                                                {{ Twig.elseif("language != defaultLanguage") }}
+                                                {{ Twig.set("url", "'/' ~ language ~ urls.trailingSlashSuffix") }}
+                                                {{ Twig.endif() }}
+                                                <a class="nav-link" href="{{ Twig.print("url") }}" data-update-url>
+                                                    <i class="flag-icon flag-icon-{{ Twig.print("language") }}"></i>
+                                                    {{ Twig.print('trans("Ceres::Template.header" ~ language | capitalize)') }}
+                                                </a>
+                                            </li>
+                                            {{ Twig.endfor() }}
+                                        </ul>
+                                    </div>
+                                    {{ Twig.do("endcacheslot") }}
+                                </div>
+                            {% endif %}
+                            {% if enableShippingCountrySelect %}
+                                <div class="col-12 {% if enableLanguageSelect %}col-lg-6{% else %}col-lg-12{% endif %}">
+                                    <div class="shipping-settings">
+                                        <div class="list-title">
+                                            <strong>{{ Twig.print('trans("Ceres::Template.headerSelectShippingCountry")') }}</strong>
+                                            <hr>
+                                        </div>
+                                        <intersect>
+                                            <shipping-country-select :disable-input="{{ Twig.print(Twig.call('services.template.isCheckout') ~ ' | json_encode') }}"></shipping-country-select>
+                                            <template #loading>
+                                                <div class="row" style="height:1px;"></div>
+                                            </template>
+                                        </intersect>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>

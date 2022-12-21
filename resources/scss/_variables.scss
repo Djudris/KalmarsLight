@@ -1,0 +1,36 @@
+$legend-hide-bundle-badge: block !default;
+
+$legend-font-family-primary: Custom-Font, 'Open Sans', sans-serif !default;
+$legend-font-family-secondary: Custom-Font, 'Roboto Slab', serif !default;
+
+$legend-color-primary: #000 !default;
+$legend-color-primary-light-percent: 50% !default;
+$legend-color-primary-light: lighten($legend-color-primary, $legend-color-primary-light-percent);
+$legend-color-secondary: #ed1c2e !default;
+
+$legend-border-color: #e9e9e9 !default;
+
+$legend-mobile-sidemenu-background: #141414 !default;
+$legend-mobile-sidemenu-color1: #fff !default;
+
+$legend-footer-background: #141414 !default;
+$legend-footer-color1: #fff !default;
+$legend-footer-color2: #959595 !default;
+$legend-footer-hover-color: #ed1c2e !default;
+
+$tag_danger:  #ed1c2e !default;
+$tag_primary: #323232 !default;
+$tag_success: #7ed321 !default;
+
+$availability_1: #7ed321 !default;
+$availability_2: #7ed321 !default;
+$availability_3: #ed1c2e !default;
+$availability_4: #ed1c2e !default;
+$availability_5: #323232 !default;
+$availability_6: #323232 !default;
+$availability_7: #323232 !default;
+$availability_8: #323232 !default;
+$availability_9: #4d4f4d !default;
+$availability_10: #4d4f4d !default;
+
+$root-directory: '..' !default;

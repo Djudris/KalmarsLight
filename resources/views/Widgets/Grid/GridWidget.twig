@@ -1,0 +1,21 @@
+{% set customClass = widget.settings.customClass.mobile %}
+{% set entries = widget.settings.entries.mobile %}
+
+{% set renderContent = false %}
+{% for entry in entries if entry.uuid | trim is not empty %}
+    {% set renderContent = true %}
+{% endfor %}
+
+{% if renderContent %}
+<div class="widget widget-grid widget-any-col row{% if customClass | length > 0 %} {{ customClass }}{% endif %}">
+    {% for entry in entries %}
+    {% if entry.manualClasses == 'true' %}
+    <div class="widget-inner {{ entry.classes }}">
+        {% else %}
+        <div class="widget-inner col-{{ entry.xs|default(12) }} col-sm-{{ entry.sm|default(12) }} col-md-{{ entry.md|default(12) }} col-lg-{{ entry.lg|default(12) }} col-xl-{{ entry.xl|default(12) }}">
+            {% endif %}
+            <div{% if isPreview %} data-builder-child-container="child{{entry.uuid}}"{% endif %}>{{ attribute(children, ('child'~entry.uuid)) | raw }}</div>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}

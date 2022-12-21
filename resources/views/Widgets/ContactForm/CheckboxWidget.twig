@@ -1,0 +1,13 @@
+{% set title = widget.settings.title.mobile %}
+{% set entries = widget.settings.entries.mobile %}
+
+{% set uid = uid() %}
+<div class="form-group">
+    <label class="group-title"><b>{{ title }}</b></label>
+    {% for entry in entries if entry.title is not empty %}
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="true" name="{{ entry.name }}" id="checkbox-{{ uid }}-{{ loop.index }}"{% if entry.required %} required{% endif %}>
+            <label class="form-check-label" for="checkbox-{{ uid }}-{{ loop.index }}">{{ entry.title }}</label>
+        </div>
+    {% endfor %}
+</div>

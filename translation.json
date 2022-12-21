@@ -1,0 +1,26 @@
+{
+  "sections": [
+    {
+      "name": "MultilingualismConfig.header",
+      "prefix": "header"
+    },
+    {
+      "name": "MultilingualismConfig.singleItem",
+      "prefix": "singleItem"
+    },
+    {
+      "name": "MultilingualismConfig.footer",
+      "prefix": "footer"
+    },
+    {
+      "name": "MultilingualismConfig.storeSpecial",
+      "prefix": "storeSpecial"
+    }
+  ],
+  "ignoredTranslationFiles":
+  [
+    "MultilingualismConfig.properties",
+    "Widget.properties",
+    "Config.properties"
+  ]
+}

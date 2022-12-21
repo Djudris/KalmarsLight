@@ -1,0 +1,18 @@
+{% set title = widget.settings.title.mobile %}
+{% set name = widget.settings.name.mobile %}
+{% set placeholder = widget.settings.placeholder.mobile %}
+{% set required = widget.settings.required.mobile %}
+{% set entries = widget.settings.entries.mobile %}
+
+{% set uid = uid() %}
+<div class="input-unit">
+    <select class="custom-select" name="{{ name }}" id="select-{{ uid }}"{% if required %} required{% endif %}>
+        {% if placeholder | length > 0 %}
+            <option selected>{{ placeholder }}</option>
+        {% endif %}
+        {% for entry in entries if entry.text is not empty %}
+            <option value="{{ entry.text }}">{{ entry.text }}</option>
+        {% endfor %}
+    </select>
+    <label for="select-{{ uid }}">{{ title }}</label>
+</div>

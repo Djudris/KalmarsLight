@@ -1,0 +1,336 @@
+body,
+#vue-app .navbar,
+.featured-category,
+.sidebar-categories,
+.section-header {
+  font-family: $legend-font-family-primary;
+}
+body:not(.isShopBuilder) {
+  letter-spacing: 0.5px;
+}
+body {
+  background: #fff;
+}
+body {
+  color: $legend-color-primary;
+}
+body.isShopBuilder .fixed-top {
+  position: absolute;
+}
+
+.register-from-login {
+  display: block;
+  text-align: left;
+  font-weight: bold;
+  color: $legend-color-secondary;
+}
+.position-relative {
+  position: relative;
+}
+.position-unset {
+  position: unset;
+}
+.widget-caption p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  font-family: $legend-font-family-secondary !important;
+}
+.modal-title {
+  font-size: 1.15rem;
+  text-transform: uppercase;
+}
+img, picture{
+  max-width: 100%;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+/* Crossed Heading */
+.crossed-heading {
+  position: relative;
+  text-align: center;
+}
+.crossed-heading:before {
+  border-top: 1px solid $legend-border-color;
+  content: "";
+  margin: 0 auto;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: 0;
+}
+.crossed-heading > * {
+  position: relative;
+  display: inline-block !important;
+  padding: 0 20px;
+  background: #fff;
+  color: $legend-color-primary;
+  z-index: 1;
+  margin: 0;
+}
+
+/* Global */
+:root {
+  --primary: $legend-color-secondary;
+}
+.widget-primary .bg-appearance {
+  background-color: $legend-color-secondary !important;
+}
+.widget-primary .text-appearance {
+  color: $legend-color-secondary !important;
+}
+[data-pl-collapse] {
+  cursor: pointer;
+}
+.text-primary {
+  color: $legend-color-primary !important;
+}
+hr {
+  border-top: 1px solid $legend-border-color;
+}
+a:not([href]){
+  cursor: pointer;
+}
+a {
+  color: $legend-color-primary;
+}
+a:focus,
+a:hover {
+  color: $legend-color-secondary;
+}
+a.bg-primary:hover,
+a.bg-primary:focus,
+button.bg-primary:hover,
+button.bg-primary:focus {
+  background-color: $legend-color-primary !important;
+}
+input {
+  outline-color: rgba($legend-color-secondary, 0.3);
+}
+.loading-animation .rect1,
+.loading-animation .rect2,
+.loading-animation .rect3,
+.loading-animation .rect4,
+.loading-animation .rect5 {
+  background: $legend-color-secondary !important;
+}
+.widget-primary .btn-appearance,
+.btn-primary,
+.btn-primary.disabled,
+.btn-primary:disabled {
+  background-color: $legend-color-secondary !important;
+  border-color: $legend-color-secondary !important;
+}
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary.focus,
+.btn-primary:active,
+.btn-primary.active,
+.open > .btn-primary.dropdown-toggle,
+.btn-primary.disabled:hover,
+.btn-primary:disabled:hover,
+.btn-primary.disabled:focus,
+.btn-primary:disabled:focus,
+.btn-primary.disabled.focus,
+.btn-primary:disabled.focus,
+.btn-primary:active:hover,
+.btn-primary.active:hover,
+.open > .btn-primary.dropdown-toggle:hover,
+.btn-primary:active:focus,
+.btn-primary.active:focus,
+.open > .btn-primary.dropdown-toggle:focus,
+.btn-primary:active.focus,
+.btn-primary.active.focus,
+.open > .btn-primary.dropdown-toggle.focus {
+  background-color: darken($legend-color-secondary, 10%) !important;
+  border-color: darken($legend-color-secondary, 10%) !important;
+  box-shadow: none !important;
+}
+.btn-outline-primary,
+.btn-outline-primary.disabled,
+.btn-outline-primary:disabled {
+  color: $legend-color-primary !important;
+  background-image: none;
+  background-color: transparent;
+  border-color: $legend-border-color !important;
+}
+.btn-outline-primary:hover,
+.btn-outline-primary:focus,
+.btn-outline-primary.focus,
+.btn-outline-primary:active,
+.btn-outline-primary.active,
+.open > .btn-outline-primary.dropdown-toggle,
+.btn-outline-primary:hover,
+.btn-outline-primary:disabled:hover,
+.btn-outline-primary.disabled:focus,
+.btn-outline-primary:disabled:focus,
+.btn-outline-primary.disabled.focus,
+.btn-outline-primary:disabled.focus,
+.btn-outline-primary:active:hover,
+.btn-outline-primary.active:hover,
+.open > .btn-outline-primary.dropdown-toggle:hover,
+.btn-outline-primary:active:focus,
+.btn-outline-primary.active:focus,
+.open > .btn-outline-primary.dropdown-toggle:focus,
+.btn-outline-primary:active.focus,
+.btn-outline-primary.active.focus,
+.open > .btn-outline-primary.dropdown-toggle.focus {
+  color: $legend-color-secondary !important;
+  background-image: none;
+  background-color: transparent !important;
+  border-color: $legend-color-secondary !important;
+  box-shadow: none !important;
+}
+.add-to-basket-container button i {
+  display: none;
+}
+.nav-tabs .nav-link {
+  padding: 0.6rem 0.6rem;
+  color: #636363;
+}
+.custom-select {
+  background: #fff
+  url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iOHB0IiBoZWlnaHQ9IjEycHQiIHZpZXdCb3g9IjAgMCA4IDEyIiB2ZXJzaW9uPSIxLjEiPgo8ZyBpZD0ic3VyZmFjZTEiPgo8cGF0aCBzdHlsZT0iIHN0cm9rZTpub25lO2ZpbGwtcnVsZTpub256ZXJvO2ZpbGw6cmdiKDAlLDAlLDAlKTtmaWxsLW9wYWNpdHk6MTsiIGQ9Ik0gMy43ODkwNjIgOC4xNTIzNDQgTCAwLjA4NTkzNzUgNC43MTA5MzggQyAtMC4wMzEyNSA0LjYwMTU2MiAtMC4wMzEyNSA0LjQyMTg3NSAwLjA4NTkzNzUgNC4zMTI1IEwgMC41ODIwMzEgMy44NDc2NTYgQyAwLjY5OTIxOSAzLjczODI4MSAwLjg5MDYyNSAzLjczODI4MSAxLjAwNzgxMiAzLjg0NzY1NiBMIDQgNi42MjUgTCA2Ljk5MjE4OCAzLjg0NzY1NiBDIDcuMTA5Mzc1IDMuNzM4MjgxIDcuMzAwNzgxIDMuNzM4MjgxIDcuNDE3OTY5IDMuODQ3NjU2IEwgNy45MTQwNjIgNC4zMTI1IEMgOC4wMzEyNSA0LjQyMTg3NSA4LjAzMTI1IDQuNjAxNTYyIDcuOTE0MDYyIDQuNzEwOTM4IEwgNC4yMTA5MzggOC4xNTIzNDQgQyA0LjA5Mzc1IDguMjYxNzE5IDMuOTA2MjUgOC4yNjE3MTkgMy43ODkwNjIgOC4xNTIzNDQgWiBNIDMuNzg5MDYyIDguMTUyMzQ0ICIvPgo8L2c+Cjwvc3ZnPgo=)
+  no-repeat right 0.75rem bottom 0.75rem;
+  color: $legend-color-primary;
+}
+.input-unit .custom-select {
+  background-position: calc(100% - 0.75rem) 0.85rem;
+}
+.tag.bg-primary {
+  background-color: $legend-footer-background !important;
+}
+.availability-1,
+.availability-2,
+.availability-3,
+.availability-4,
+.availability-5,
+.availability-6,
+.availability-7,
+.availability-8,
+.availability-9,
+.availability-10 {
+  background-color: transparent;
+}
+$availabs: $availability_1 $availability_2 $availability_3 $availability_4
+$availability_5 $availability_6 $availability_7 $availability_8
+$availability_9 $availability_10;
+
+@for $i from 1 to length($availabs) + 1 {
+  .availability-#{$i} {
+    color: nth($availabs, $i);
+  }
+  .availability-#{$i}.fa-info {
+    background-color: nth($availabs, $i);
+    color: #fff;
+  }
+}
+
+/* Owl */
+.owl-carousel .owl-nav .owl-prev {
+  left: 0;
+}
+.owl-carousel .owl-nav .owl-next {
+  right: 0;
+}
+.owl-carousel .owl-nav .owl-prev i:before,
+.owl-carousel .owl-nav .owl-next i:before {
+  font-family: "pl-material";
+  font-weight: normal;
+}
+.owl-carousel .owl-nav .owl-prev i:before {
+  content: "\e903";
+}
+.owl-carousel .owl-nav .owl-next i:before {
+  content: "\e904";
+}
+.owl-theme .owl-nav [class*="owl-"]:hover {
+  background-color: transparent;
+  color: $legend-color-secondary;
+  opacity: 1 !important;
+}
+.owl-theme .owl-nav [class*="owl-"] {
+  background-color: transparent;
+  color: $legend-color-secondary;
+}
+.owl-thumbs .owl-thumb.active,
+.owl-thumbs .owl-thumb:hover {
+  border: 1px solid $legend-color-secondary;
+}
+
+/* Checkout */
+.cmp-method-list .method-list-item input:checked + label {
+  box-shadow: inset 0 0 0 0.1rem $legend-color-secondary;
+}
+.payment-link-style {
+  color: $legend-color-secondary !important;
+}
+
+/* Login page */
+h1.login-view-title {
+  margin-bottom: 2rem !important;
+}
+
+/* Lightbox */
+.lightbox:before {
+  font-family: "pl-material";
+  font-weight: normal;
+  line-height: 1;
+  content: "\e915";
+
+  display: block;
+  font-size: 2rem;
+  position: fixed;
+  top: 5px;
+  right: 5px;
+  color: #fff;
+  cursor: pointer;
+}
+
+@media not all, (-webkit-transform-3d) {
+  /* Fix for megamenu */
+  .carousel-inner > .carousel-item.next.left,
+  .carousel-inner > .carousel-item.prev.right,
+  .carousel-inner > .carousel-item.active {
+    transform: none;
+  }
+  .carousel-inner > .carousel-item {
+    backface-visibility: unset;
+  }
+}
+
+.pluginset-preview-overlay,
+.admin-preview-overlay {
+  /* Small preview */
+  min-width: auto !important;
+  padding: 8px !important;
+  font-size: 10px !important;
+}
+
+/* Amazon Pay Button */
+.amzPayButton.articleCheckout {
+  float: left !important;
+  width: auto !important;
+  margin-left: 15px;
+  margin-right: 0 !important;
+}
+
+/* ShopBuilder Styles */
+.ql-container {
+  color: $legend-color-primary !important;
+}

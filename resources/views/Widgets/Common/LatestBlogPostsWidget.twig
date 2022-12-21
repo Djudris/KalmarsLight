@@ -1,0 +1,50 @@
+{% import "Ceres::Widgets.Helper.TwigBuilder" as Twig %}
+{% import "Ceres::Widgets.Helper.WidgetHelper" as WidgetHelper %}
+
+{% set customClass = widget.settings.customClass.mobile %}
+{% set categoryId      = widget.settings.categoryId.mobile %}
+{% set maxItems        = widget.settings.maxItems.mobile %}
+{% set itemsPerPage    = widget.settings.itemsPerPage.mobile %}
+{% set itemsPerPageXs  = widget.settings.itemsPerPageXs.mobile %}
+{% set itemsPerPageSm  = widget.settings.itemsPerPageSm.mobile %}
+{% set itemsPerPageMd  = widget.settings.itemsPerPageMd.mobile %}
+{% set itemsPerPageLg  = widget.settings.itemsPerPageLg.mobile %}
+{% set hasSpacing = widget.settings.customMargin.mobile or widget.settings.customPadding.mobile %}
+{% set inlineSpacings = WidgetHelper.getInlineSpacings(widget.settings, widget.settings.customPadding.mobile, widget.settings.customMargin.mobile) %}
+{% set spacingClasses = WidgetHelper.getSpacingClasses(widget.settings, widget.settings.customPadding.mobile, widget.settings.customMargin.mobile) %}
+
+{% if itemsPerPage is empty %}
+    {% set itemsPerPage = 2 %}
+{% elseif itemsPerPage < 1 %}
+    {% set itemsPerPage = 1 %}
+{% endif %}
+
+{% if maxItems < 1 %}
+    {% set maxItems = 1 %}
+{% endif %}
+
+<div class="widget widget-latest-blog-posts{% if customClass | length > 0 %} {{ customClass }}{% endif %}{% if spacingClasses | length > 0 %} {{ spacingClasses }}{% endif %}"{% if inlineSpacings | length > 0 %} style="{{ inlineSpacings }}"{% endif %}>
+    <div class="widget-inner{% if hasSpacing %} m-0 p-0{% endif %}">
+        <client-only>
+            <legend-blog-list
+                    {% if categoryId is not empty %}:category-id="{{ categoryId }}"{% endif %}
+                    :max-items="{{ maxItems }}"
+                    :items-per-page="{{ itemsPerPage }}"
+                    :items-per-page-xs="{{ itemsPerPageXs }}"
+                    :items-per-page-sm="{{ itemsPerPageSm }}"
+                    :items-per-page-md="{{ itemsPerPageMd }}"
+                    :items-per-page-lg="{{ itemsPerPageLg }}">
+                <template slot="NoArticles">
+                    {% if isPreview %}
+                        <div class="widget-placeholder">
+                            <div>
+                                <p class="title mb-0">No articles found!</p>
+                                <p class="description mt-3">Install Blog extension and create articles.</p>
+                            </div>
+                        </div>
+                    {% endif %}
+                </template>
+            </legend-blog-list>
+        </client-only>
+    </div>
+</div>

@@ -1,0 +1,20 @@
+{% set title = widget.settings.title.mobile %}
+
+<div class="form-check">
+    <input class="form-check-input" type="checkbox" value="true" name="privacypolicy" id="privacypolicy" required>
+    <label class="form-check-label" for="privacypolicy">
+        {% autoescape false %}
+            {% if title | length > 0 %}
+                {{ title }}
+            {% else %}
+                {% set policyContent %}<!--
+          --><a href="{{ urls.privacyPolicy }}" target="_blank">
+                    <span>{{ trans("Ceres::Template.contactPrivacyPolicy", {"hyphen": "&shy;"}) }}</span>
+                </a><!--
+          -->{% endset %}
+                {{ trans("Ceres::Template.contactAcceptPrivacyPolicy", {"policy": policyContent}) }}<!--
+          --><sup>*</sup>
+            {% endif %}
+        {% endautoescape %}
+    </label>
+</div>

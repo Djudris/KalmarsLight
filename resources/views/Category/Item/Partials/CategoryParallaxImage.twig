@@ -1,0 +1,6 @@
+<div class="parallax-img-container-custom {{ config("Legend.categoryImage.size") }} {% if config("Legend.categoryImage.hide_on_mobile") == "true" %}hidden-xs-down{%endif%}">
+    {% if category.details[0].imagePath is not empty %}
+        <lazy-img image-url="/documents/{{ category.details[0].imagePath }}" role="img">
+        </lazy-img>
+    {% endif %}
+</div>

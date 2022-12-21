@@ -1,0 +1,32 @@
+<script type="x/template" id="item-filter-price-side">
+    <div class="item-filter-price row">
+        <div class="input-group col-lg-12 pb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">${ currency }</span>
+            </div>
+            <input type="number"
+                   class="form-control"
+                   @focus="selectAll($event)"
+                   placeholder="Min"
+                   v-model="priceMin"
+                   :aria-label="$translate('Ceres::Template.itemFilterPriceMin')">
+        </div>
+        <div class="input-group col-lg-12 pb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">${ currency }</span>
+            </div>
+            <input type="number"
+                   class="form-control"
+                   @focus="selectAll($event)"
+                   placeholder="Max"
+                   v-model="priceMax"
+                   :aria-label="$translate('Ceres::Template.itemFilterPriceMax')">
+        </div>
+        <div class="col-lg-12 text-right">
+            <button type="button" class="btn btn-primary btn-appearance" :class="{'disabled': isDisabled}" v-tooltip
+                    data-toggle="tooltip" data-placement="top" @click="triggerFilter()" :title="$translate('Ceres::Template.itemApply')" :aria-label="$translate('Ceres::Template.itemFilterButton')">
+                <icon icon="check" :loading="isLoading"></icon>
+            </button>
+        </div>
+    </div>
+</script>

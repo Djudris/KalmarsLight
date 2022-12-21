@@ -1,0 +1,9 @@
+{% set customClass = widget.settings.customClass.mobile %}
+{% set bgcolor = widget.settings.bgcolor.mobile | default("#fff") %}
+{% set fullWidthStyle = widget.settings.fullWidthStyle.mobile | default("full") %}
+
+<div class="widget widget-grid widget-full-width{% if fullWidthStyle == "bgOnly" or fullWidthStyle == "full" %} full{% endif %}{% if customClass | length > 0 %} {{ customClass }}{% endif %}" style="background:{{ bgcolor }};">
+    <div class="widget-inner{% if fullWidthStyle == "bgOnly" %} container-max{% endif %}">
+        <div{% if isPreview %} data-builder-child-container="first"{% endif %}>{{ children.first | raw }}</div>
+    </div>
+</div>

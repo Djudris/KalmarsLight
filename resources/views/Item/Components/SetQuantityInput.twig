@@ -1,0 +1,27 @@
+{% set showPrice = ( config("Legend.b2b.Enable") == "false" or services.getCustomer.getContactClassId() in config("Legend.b2b.CustomerClassIds")|split(',') ) %}
+<!-- SSR:template(set-quantity-input) -->
+<script type="x/template" data-component="set-quantity-input">
+    {% if showPrice %}
+        <div class="qty-section d-flex flex-wrap align-items-center m-0">
+            <div>
+                <div class="quantity-input-container">
+                    <client-only>
+                        <quantity-input class="widget-alignment qty-set"
+                                        @quantity-change="currentQuantity = $event"
+                                        :value="currentQuantity"
+                                        :min="setComponentConfig.minimumOrderQuantity"
+                                        :max="setComponentConfig.maximumOrderQuantity"
+                                        :variation-id="currentVariation.variation.id"
+                                        :waiting="!setComponentConfig.orderQuantityPossible || isLoading || !isSalable"
+                                        :use-appearance="true"
+                                        template-override="#quantity-input-LG">
+                        </quantity-input>
+                    </client-only>
+                </div>
+            </div>
+        </div>
+    {% else %}
+        <div></div>
+    {% endif %}
+</script>
+<!-- /SSR -->

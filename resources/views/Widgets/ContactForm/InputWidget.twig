@@ -1,0 +1,10 @@
+{% set title = widget.settings.title.mobile %}
+{% set name = widget.settings.name.mobile %}
+{% set placeholder = widget.settings.placeholder.mobile %}
+{% set required = widget.settings.required.mobile %}
+
+{% set uid = uid() %}
+<div class="input-unit">
+    <input type="text" name="{{ name }}" id="input-{{ uid }}" placeholder="{{ placeholder }}"{% if required %} required{% endif %}>
+    <label for="input-{{ uid }}">{{ title }}</label>
+</div>

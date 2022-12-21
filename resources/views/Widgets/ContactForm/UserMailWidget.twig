@@ -1,0 +1,8 @@
+{% set title = widget.settings.title.mobile %}
+{% set placeholder = widget.settings.placeholder.mobile %}
+
+{% set uid = uid() %}
+<div class="input-unit">
+    <input type="email" name="userMail" id="user-mail" placeholder="{{ placeholder }}" required>
+    <label for="user-mail">{{ title }}</label>
+</div>

@@ -1,0 +1,36 @@
+{% set customClass = widget.settings.customClass.mobile %}
+{% set title     = widget.settings.title.mobile %}
+{% set facebook  = widget.settings.facebook.mobile %}
+{% set twitter   = widget.settings.twitter.mobile %}
+{% set youtube   = widget.settings.youtube.mobile %}
+{% set instagram = widget.settings.instagram.mobile %}
+{% set pinterest = widget.settings.pinterest.mobile %}
+{% set whatsapp  = widget.settings.whatsapp.mobile %}
+
+{% set hasPlaceholder = widget.settings.title | length <= 0 %}
+
+<div class="widget widget-social{% if hasPlaceholder %} widget-placeholder{% endif %}{% if customClass | length > 0 %} {{ customClass }}{% endif %}">
+    <div class="widget-inner">
+        <h2 class="h5">{{ title }}</h2>
+        <div class="social-icons">
+            {% if facebook|trim|length > 0 %}
+                <a href="{{ facebook }}" target="_blank"><span class="pl-material pl-facebook"></span></a>
+            {% endif %}
+            {% if twitter|trim|length > 0 %}
+                <a href="{{ twitter }}" target="_blank"><span class="pl-material pl-twitter"></span></a>
+            {% endif %}
+            {% if youtube|trim|length > 0 %}
+                <a href="{{ youtube }}" target="_blank"><span class="pl-material pl-youtube"></span></a>
+            {% endif %}
+            {% if instagram|trim|length > 0 %}
+                <a href="{{ instagram }}" target="_blank"><span class="pl-material pl-instagram"></span></a>
+            {% endif %}
+            {% if pinterest|trim|length > 0 %}
+                <a href="{{ pinterest }}" target="_blank"><span class="pl-material pl-pinterest"></span></a>
+            {% endif %}
+            {% if whatsapp|trim|length > 0 %}
+                <a href="{{ whatsapp }}" target="_blank"><span class="pl-material pl-whatsapp"></span></a>
+            {% endif %}
+        </div>
+    </div>
+</div>

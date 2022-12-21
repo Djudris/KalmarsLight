@@ -1,0 +1,46 @@
+.lv-shopping {
+  position: relative;
+}
+.lv-shopping .live-shopping-details {
+  position: absolute;
+  z-index: 999;
+  top: -64px;
+  background-color: rgba($legend-color-secondary, 0.7);
+  color: #fff;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+.cmp-product-thumb:hover .lv-shopping .live-shopping-details {
+  top: -78px;
+}
+.lv-shopping
+.live-shopping-details
+.live-shopping-countdown
+.live-shopping-countdown-thread-container
+.live-shopping-countdown-thread
+.live-shopping-countdown-thread-number {
+  font-size: 1.45rem;
+}
+.lv-shopping .live-shopping-details .live-shopping-countdown {
+  padding: 0.7rem 0.7rem 0.6rem 0.7rem;
+}
+.lv-shopping
+.live-shopping-details
+.live-shopping-countdown
+.live-shopping-countdown-heading,
+.widget-live-shopping .owl-carousel .owl-dots {
+  display: none;
+}
+.lv-shopping
+.live-shopping-details
+.live-shopping-progress
+.live-shopping-progress-heading {
+  font-size: 0.95rem;
+  line-height: 1rem;
+}
+.lv-shopping .live-shopping-progress {
+  display: none;
+}
+.cmp-product-thumb:hover .lv-shopping .live-shopping-progress {
+  display: block;
+}

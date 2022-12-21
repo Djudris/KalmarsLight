@@ -1,0 +1,118 @@
+{% macro get_children(category, currentScopeUrl, level, megaMenuLevels, maxItems) %}
+    {% set megaMenuLevels = megaMenuLevels | default(1) %}
+    {% set maxItems = maxItems | default({"1": 30, "2": 3, "3": 2}) %}
+    {% import _self as childlist %}
+    {% set counter = 0 %}
+    {% if level < megaMenuLevels %}
+        {% for child in category.children if counter < maxItems[level] %}
+            {% if (child.details | length > 0) %}
+                {% if level == 1 %}
+                    <li><ul class="collapse-inner">
+                {% endif %}
+                <li class="level{{ level }}{% if level == 1 and child.children %} has-children{% endif %}">
+                    {% set newScope = currentScopeUrl ~ "/" ~ child.details[0].nameUrl %}
+                    <a @touchstart.stop href="{{ newScope }}{{ urls.trailingSlashSuffix }}">{{ child.details[0].name }}</a>
+                    {% if child.children and level == 1 %}
+                        <ul>
+                            {{ childlist.get_children(child, newScope, level + 1, megaMenuLevels, maxItems) }}
+                        </ul>
+                    {% endif %}
+                </li>
+                {% if child.children and level > 1 %}
+                    {{ childlist.get_children(child, newScope, level + 1, megaMenuLevels, maxItems) }}
+                {% endif %}
+                {% if level == 1 %}
+                    </ul></li>
+                {% endif %}
+                {% set counter = counter + 1 %}
+                {% if counter == maxItems[level]%}
+                    <li class="level{{ level }} bt-more"><a @touchstart.stop href="{{ currentScopeUrl }}{{ urls.trailingSlashSuffix }}">{{ trans("Ceres::Template.itemShowMore") }}...</a></li>
+                {% endif %}
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+{% endmacro %}
+
+{% macro get_nav_bar(categories, currentScopeUrl, megaMenuLevels, maxItemsPerStage, maxRootItems) %}
+    {% import _self as navbar %}
+    {% set counter = 0 %}
+    {% set megaMenuLevels = megaMenuLevels | default(1) %}
+
+    {% for category in categories|slice(0, maxRootItems) %}
+
+        {% if category.details | length > 0 %}
+
+            {% if urls.includeLanguage %}
+                {% set currentScopeUrl = "/" ~ category.details[0].lang ~  "/" ~ category.details[0].nameUrl %}
+            {% else %}
+                {% set currentScopeUrl = "/" ~ category.details[0].nameUrl %}
+            {% endif %}
+            {% set translatedChildren = 0 %}
+            {% for children in category.children if children.details[0] %}
+                {% set translatedChildren = translatedChildren + 1 %}
+            {% endfor %}
+
+            {% if category.children and translatedChildren > 0 %}
+
+                <li {% if maxItemsPerStage[1] > 0 %}class="ddown"{% endif %} v-navigation-touch-handler>
+                    <a href="{{ currentScopeUrl }}{{ urls.trailingSlashSuffix }}">{{ category.details[0].name }}</a>
+                    {% if maxItemsPerStage[1] > 0 %}
+                        <ul data-level="1" class="collapse nav-dropdown-{{ counter }}">
+                            {% set counter = counter + 1 %}
+                            {% if megaMenuLevels == 1 %}
+                                {% for child in category.children %}
+                                    {% if child.details | length > 0 %}
+                                        <li>
+                                            <ul class="collapse-inner">
+                                                <li>
+                                                    <a href="{{ currentScopeUrl }}/{{ child.details[0].nameUrl }}{{ urls.trailingSlashSuffix }}">{{ child.details[0].name }}</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    {% endif %}
+                                {% endfor %}
+                            {% else %}
+                                {{ navbar.get_children(category, currentScopeUrl, 1, megaMenuLevels, maxItemsPerStage) }}
+                            {% endif %}
+                        </ul>
+                    {% endif %}
+                </li>
+
+            {% else %}
+
+                <li>
+                    <a href="{{ currentScopeUrl }}{{ urls.trailingSlashSuffix }}">{{ category.details[0].name }}</a>
+                </li>
+
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+
+    {% if categories|length > maxRootItems %}
+        <li class="ddown" v-navigation-touch-handler>
+            <a href="#">{{ trans("Legend::Template.headerMenuMore") }}</a>
+            <ul data-level="1" class="collapse nav-dropdown-{{ counter }}">
+                {% for category in categories|slice(maxRootItems) %}
+                    {% if category.details | length > 0 %}
+                        {% if urls.includeLanguage %}
+                            {% set currentScopeUrl = "/" ~ category.details[0].lang ~  "/" ~ category.details[0].nameUrl %}
+                        {% else %}
+                            {% set currentScopeUrl = "/" ~ category.details[0].nameUrl %}
+                        {% endif %}
+                        {% set translatedChildren = 0 %}
+                        {% for children in category.children if children.details[0] %}
+                            {% set translatedChildren = translatedChildren + 1 %}
+                        {% endfor %}
+                        <li class="level1{% if category.children and translatedChildren > 0 %} has-children{% endif %}">
+                            <a href="{{ currentScopeUrl }}{{ urls.trailingSlashSuffix }}">{{ category.details[0].name }}</a>
+                            <ul>
+                                {{ navbar.get_children(category, currentScopeUrl, 2, megaMenuLevels, maxItemsPerStage) }}
+                            </ul>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </li>
+    {% endif %}
+
+{% endmacro %}

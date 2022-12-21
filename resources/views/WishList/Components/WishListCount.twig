@@ -1,0 +1,8 @@
+<!-- SSR:template(wish-list-count) -->
+<script type="x/template" data-component="wish-list-count">
+    <a :href="urlWishList" rel="nofollow" class="nav-link" :aria-label="$translate('Ceres::Template.wishList')">
+        <span class="pl-material" :class="{'pl-outline-favorite_border': !wishListCount, 'pl-outline-favorite': wishListCount}" ></span>
+        <span class="d-none d-sm-inline">{{ trans("Ceres::Template.wishList") }}</span>
+    </a>
+</script>
+<!-- /SSR -->

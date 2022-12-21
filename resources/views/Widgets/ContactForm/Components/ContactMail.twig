@@ -1,0 +1,5 @@
+{% for field in fields %}
+    {% if field.value | length > 0 %}
+        <b>{{ field.name }}:</b> {{ field.value | raw }}<br>
+    {% endif %}
+{% endfor %}

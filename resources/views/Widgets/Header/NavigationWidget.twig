@@ -1,0 +1,171 @@
+{% import "Ceres::Widgets.Helper.TwigBuilder" as Twig %}
+{% import "Ceres::Widgets.Helper.WidgetHelper" as WidgetHelper %}
+
+{% set uid = uid() %}
+
+{% set customClass = widget.settings.customClass.mobile %}
+{% set spacingSettings = widget.settings.spacing %}
+{% set inlineSpacings = WidgetHelper.getInlineSpacings(spacingSettings, spacingSettings.customPadding.mobile, spacingSettings.customMargin.mobile) %}
+{% set spacingClasses = WidgetHelper.getSpacingClasses(spacingSettings, spacingSettings.customPadding.mobile, spacingSettings.customMargin.mobile) %}
+
+{% set isFixed              = widget.settings.isFixed.mobile %}
+{% set navigationStyle      = widget.settings.navigationStyle.mobile %}
+{% set companyLogoUrl       = widget.settings.companyLogoUrl.mobile %}
+{% set fallbackImagePath    = widget.settings.fallbackImagePath.mobile %}
+{% set limitRootItems       = widget.settings.limitRootItems.mobile %}
+{% set megaMenuLevels       = widget.settings.megaMenuLevels.mobile | default(2) %}
+{% set megaMenuMaxItems1    = widget.settings.megaMenuMaxItems.stage1.mobile | default(30) %}
+{% set megaMenuMaxItems2    = widget.settings.megaMenuMaxItems.stage2.mobile | default(3) %}
+{% set megaMenuMaxItems3    = widget.settings.megaMenuMaxItems.stage3.mobile | default(2) %}
+{% set megaMenuMaxItems     = { "1": megaMenuMaxItems1, "2": megaMenuMaxItems2, "3": megaMenuMaxItems3 } %}
+{% set maxRootItems         = widget.settings.maxRootItems.mobile %}
+
+{% set realMaxRootItems = 100 %}
+{% if limitRootItems %}
+    {% set realMaxRootItems = maxRootItems %}
+{% endif %}
+
+{% if companyLogoUrl is empty %}
+    {% set companyLogoUrl = plugin_path('Legend') ~ "/images/logo.png" %}
+{% endif %}
+
+{% if fallbackImagePath | trim is empty %}
+    {% set fallbackImagePath = companyLogoUrl %}
+{% endif %}
+
+{{ Twig.set("logoUrl", companyLogoUrl | json_encode) }}
+{{ Twig.print("add_asset(logoUrl,'image')") }}
+
+{{ Twig.import("Tree", "Legend::Category.Macros.CategoryTree") }}
+
+{{ Twig.import("LayoutContainer", "Ceres::PageDesign.Macros.LayoutContainer") }}
+{{ Twig.set("currencyData", Twig.call("services.checkout.getCurrencyData") ~ "[currencyFormat]") }}
+{{ Twig.set("overrideSearchBar", Twig.call("LayoutContainer.show", ["Ceres::Search.SearchBar"])) }}
+{{ Twig.set("visibleFields", "ceresConfig.basket.previewData") }}
+
+<nav class="navbar header-fw p-0 unfixed{% if customClass | length > 0 %} {{ customClass }}{% endif %}">
+    <div class="nv-wrap">
+        <div class="container-max px-0">
+            <div class="row w-100 mx-0 flex-row flex-wrap align-items-center">
+                <div class="col-10 col-sm-5 col-md-4 col-lg-4 site-logo">
+                    {% if companyLogoUrl | trim | length > 0 %}
+                        <a class="navbar-brand" href="{{ Twig.print('urls.home') }}">
+                            <picture>
+                                <source srcset="{{ companyLogoUrl }}"{% if companyLogoUrl matches '/.?(\\.webp)(?:$|\\?)/' %} type="image/webp"{% endif %}>
+                                <img
+                                        class="img-fluid"
+                                        src="{{ fallbackImagePath }}"
+                                        alt="{{ Twig.print('trans("Ceres::Template.headerCompanyName")') }}"
+                                />
+                            </picture>
+                        </a>
+                    {% endif %}
+                </div>
+                <div class="col-2 col-sm-1 order-sm-5 order-0 text-right nopad-mobile d-lg-none">
+                    <button v-open-mobile-navigation class="navbar-toggler" type="button">
+                        <span class="pl-material pl-outline-dehaze"></span>
+                    </button>
+                </div>
+                <div class="col-12 col-sm-6 col-md-7 col-lg-4 searchCol nopad-mobile">
+                    {{ Twig.if("overrideSearchBar | trim is empty") }}
+                    {% if not isPreview %}<lazy-hydrate when-idle>{% endif %}
+                        <item-search>
+                            <div class="w-100 position-relative d-flex flex-grow-1">
+                                <input type="search" class="search-input px-3 py-2 flex-grow-1" placeholder="{{ Twig.print('trans("Legend::Template.headerSearchPlaceholder")') }}" aria-label="{{ Twig.print('trans("Ceres::Template.headerSearchTerm", [], "de_DE")') }}">
+                                <button class="search-submit" type="submit" aria-label="{{ Twig.print('trans("Ceres::Template.headerSearch")') }}">
+                                    <span class="pl-material pl-baseline-search"></span>
+                                </button>
+                            </div>
+
+                            {% if isPreview %}
+                                <template #search-button>
+                                    <button class="search-submit" type="submit" {{ WidgetHelper.makeClickable(isPreview) }} data-toggle="collapse" href="#search-suggestions_{{ uid }}" role="button">
+                                        <span class="pl-material pl-baseline-search"></span>
+                                    </button>
+                                </template>
+                            {% endif %}
+
+                            {% if isPreview or children is defined and children.suggestions | trim is not empty %}
+                                <template #autocomplete-suggestions>
+                                    <div class="autocomplete-suggestions shadow bg-white w-100{% if isPreview %} collapse position-relative mh-100{% endif %}"
+                                            {% if isPreview %} data-builder-child-container="suggestions" id="search-suggestions_{{ uid }}"{% endif %}>
+                                        {{ children.suggestions | raw }}
+                                    </div>
+                                </template>
+                            {% endif %}
+                        </item-search>
+                        {% if not isPreview %}</lazy-hydrate>{% endif %}
+                    {{ Twig.else() }}
+                    {{ Twig.print("overrideSearchBar | raw") }}
+                    {{ Twig.endif() }}
+                </div>
+                <div class="col-md-4 col-lg-4 d-none d-lg-block">
+                    <a v-toggle-basket-preview href="#" class="toggle-basket-preview nav-link text-right">
+                        <span class="pl-material pl-outline-shopping_cart"></span>
+                        {{ Twig.print('trans("Legend::Template.headerCart1")') }} <span class="qty" v-basket-item-quantity="$store.state.basket.data.itemQuantity">0</span> {{ Twig.print('trans("Legend::Template.headerCart2")') }}
+                        <span class="sum" v-if="!$store.state.basket.showNetPrices" v-basket-item-sum="$store.state.basket.data.itemSum">0,00 {{ Twig.print("currencyData") }}</span>
+                        <span class="sum" v-else v-cloak v-basket-item-sum="$store.state.basket.data.itemSumNet">0,00 {{ Twig.print("currencyData") }}</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-max position-relative basket-preview-header-wrap">
+        <basket-preview v-if="$store.state.lazyComponent.components['basket-preview']" :show-net-prices="{{ Twig.print("showNetPrices | json_encode") }}" :visible-fields="{{ Twig.print("visibleFields | json_encode") }}">
+            <template #before-basket-item>
+                {{ Twig.print(Twig.call("LayoutContainer.show", ["Ceres::BasketList.BeforeItem"])) }}
+            </template>
+            <template #after-basket-item>
+                {{ Twig.print(Twig.call("LayoutContainer.show", ["Ceres::BasketList.AfterItem"])) }}
+            </template>
+            <template #before-basket-totals>
+                {{ Twig.print(Twig.call("LayoutContainer.show", ["Ceres::BasketPreview.BeforeBasketTotals"])) }}
+            </template>
+            <template #before-item-sum>
+                {{ Twig.print(Twig.call("LayoutContainer.show", ["Ceres::BasketTotals.BeforeItemSum"])) }}
+            </template>
+            <template #after-item-sum>
+                {{ Twig.print(Twig.call("LayoutContainer.show", ["Ceres::BasketTotals.AfterItemSum"])) }}
+            </template>
+            <template #before-shipping-costs>
+                {{ Twig.print(Twig.call("LayoutContainer.show", ["Ceres::BasketTotals.BeforeShippingCosts"])) }}
+            </template>
+            <template #after-shipping-costs>
+                {{ Twig.print(Twig.call("LayoutContainer.show", ["Ceres::BasketTotals.AfterShippingCosts"])) }}
+            </template>
+            <template #before-total-sum>
+                {{ Twig.print(Twig.call("LayoutContainer.show", ["Ceres::BasketTotals.BeforeTotalSum"])) }}
+            </template>
+            <template #before-vat>
+                {{ Twig.print(Twig.call("LayoutContainer.show", ["Ceres::BasketTotals.BeforeVat"])) }}
+            </template>
+            <template #after-vat>
+                {{ Twig.print(Twig.call("LayoutContainer.show", ["Ceres::BasketTotals.AfterVat"])) }}
+            </template>
+            <template #after-total-sum>
+                {{ Twig.print(Twig.call("LayoutContainer.show", ["Ceres::BasketTotals.AfterTotalSum"])) }}
+            </template>
+            <template #after-basket-totals>
+                {{ Twig.print(Twig.call("LayoutContainer.show", ["Ceres::BasketPreview.AfterBasketTotals"])) }}
+            </template>
+            <template #before-checkout-button>
+                {{ Twig.print(Twig.call("LayoutContainer.show", ["Ceres::BasketPreview.BeforeCheckoutButton"])) }}
+            </template>
+            <template #after-checkout-button>
+                {{ Twig.print(Twig.call("LayoutContainer.show", ["Ceres::BasketPreview.AfterCheckoutButton"])) }}
+            </template>
+        </basket-preview>
+    </div>
+    {% if not isPreview %}</nav>{% endif %}
+<div class="navbar-menu header-fw p-0{% if not isFixed %} unfixed{% endif %}">
+    <div id="mainTopMenuWrapper" class="d-none d-lg-block">
+        <div class="container-max">
+            <div class="main-navbar-collapsable{% if navigationStyle == 'megaMenu' %} megamenu{% else %} normalmenu{%endif%}">
+                <ul class="mainmenu p-0 m-0 d-flex">
+                    {{ Twig.print(Twig.call("Tree.get_nav_bar", [Twig.var("categories"), "", megaMenuLevels, megaMenuMaxItems, realMaxRootItems])) }}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% if isPreview %}</nav>{% endif %}

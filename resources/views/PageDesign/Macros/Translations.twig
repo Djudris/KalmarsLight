@@ -1,0 +1,9 @@
+{% macro add( plugin, group ) %}
+    <!-- SSR:global(translations.{{ plugin }}.{{ group }}) -->
+    <script type="application/json" data-translation="{{ plugin }}::{{ group }}">
+        {% set translations = services.localization.getTranslations( plugin, group ) %}
+        {% set translations = translations|merge({'storeSpecialOffer': trans("Legend::Template.storeSpecialOffer"), 'storeSpecialNew': trans("Legend::Template.storeSpecialNew"), 'storeSpecialTop': trans("Legend::Template.storeSpecialTop")}) %}
+        {{ translations | json_encode | raw }}
+    </script>
+    <!-- /SSR -->
+{% endmacro %}

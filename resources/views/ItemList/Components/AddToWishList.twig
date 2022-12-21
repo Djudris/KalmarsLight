@@ -1,0 +1,11 @@
+<script type="x/template" id="add-to-wish-list-item">
+    <a class="add-to-wish-list large"
+       :class="{active: isVariationInWishList}"
+       @click.prevent="switchState()"
+       data-toggle="tooltip"
+       data-placement="top"
+       ref="addToWishList"
+       title="">
+        <i class="fa" :class="{'fa-heart': isVariationInWishList, 'fa-heart-o': !isVariationInWishList}"></i>
+    </a>
+</script>

@@ -1,0 +1,53 @@
+{% import "Ceres::Widgets.Helper.TwigBuilder" as Twig %}
+{% import "Ceres::Widgets.Helper.WidgetHelper" as WidgetHelper %}
+
+{{ Twig.import("LayoutContainer", "Ceres::PageDesign.Macros.LayoutContainer") }}
+
+{% set customClass = widget.settings.customClass.mobile %}
+{% set spacingSettings = widget.settings.spacing %}
+{% set inlineSpacings = WidgetHelper.getInlineSpacings(spacingSettings, spacingSettings.customPadding.mobile, spacingSettings.customMargin.mobile) %}
+{% set spacingClasses = WidgetHelper.getSpacingClasses(spacingSettings, spacingSettings.customPadding.mobile, spacingSettings.customMargin.mobile) %}
+
+{% set appearance = widget.settings.appearance.mobile | default("primary") %}
+
+{{ Twig.set("b2bEnable", Twig.call("config", ["Legend.b2b.Enable"])) }}
+{{ Twig.set("b2bCustomerClassId", Twig.call("services.getCustomer.getContactClassId")) }}
+{{ Twig.set("b2bCustomerClassIds", Twig.call("config", ["Legend.b2b.CustomerClassIds"]) ~ " | split(\",\")") }}
+{{ Twig.set("showPrice", "( b2bEnable == \"false\" or b2bCustomerClassId in b2bCustomerClassIds )") }}
+
+<div class="widget widget-add-to-basket widget-{{ appearance }}
+    {% if customClass | length > 0 %} {{ customClass }}{% endif %}
+    {% if spacingClasses | length > 0 %} {{ spacingClasses }}{% endif %}"
+        {% if inlineSpacings | length > 0 %} style="{{ inlineSpacings }}"{% endif %}>
+
+    {{ Twig.print(Twig.call("LayoutContainer.show", ["Ceres::SingleItem.BeforeAddToBasket", Twig.var("item.documents[0].data")])) }}
+
+    {{ Twig.if("showPrice") }}
+    <intersect>
+        <div class="w-100">
+            <single-add-to-basket
+                    button-size="{{ buttonSize }}"
+                    padding-classes="{{ spacingPadding }}"
+                    padding-inline-styles="{{ inlinePadding }}">
+            </single-add-to-basket>
+        </div>
+
+        <template #loading>
+            <button class="btn btn-block btn-primary btn-appearance">
+                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                {{ Twig.trans("Ceres::Template.singleItemAddToBasket") }}
+            </button>
+        </template>
+    </intersect>
+    {{ Twig.else() }}
+    <div class="w-100">
+        <div class="add-to-basket-container">
+            <button data-toggle="modal" href="#login" class="btn btn-block btn-primary">
+                <i class="pl-material pl-outline-exit_to_app" aria-hidden="true"></i>{{ Twig.print('trans("Ceres::Template.login")') }}
+            </button>
+        </div>
+    </div>
+    {{ Twig.endif() }}
+
+    {{ Twig.print(Twig.call("LayoutContainer.show", ["Ceres::SingleItem.AfterAddToBasket", Twig.var("item.documents[0].data")])) }}
+</div>

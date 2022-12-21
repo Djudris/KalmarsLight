@@ -1,0 +1,116 @@
+/* Footer */
+body:not(.isShopBuilder) .footer {
+  padding: 3rem 0 1rem;
+}
+.footer {
+  border-top: 1px solid $legend-border-color;
+  color: $legend-footer-color2;
+}
+.footer hr {
+  border-color: $legend-footer-color2 !important;
+}
+.footer .footer-content {
+  line-height: 1.8rem;
+}
+.footer .footer-content .form-check {
+  line-height: 1.1rem;
+}
+.footer h2,
+.footer .h2,
+.footer h1,
+.footer .h1,
+.footer p.h4 {
+  font-size: 1.15rem;
+  font-weight: normal !important;
+  margin-bottom: 1.6rem;
+  text-transform: uppercase;
+  color: $legend-footer-color1;
+}
+.footer a,
+.footer .widget-list .widget-inner a,
+.footer .widget-link-list .widget-inner a {
+  color: $legend-footer-color2;
+}
+.footer a:hover,
+.footer .widget-list .widget-inner a:hover,
+.footer .widget-link-list .widget-inner a:hover,
+.footer .social-icons > a:hover {
+  color: $legend-footer-hover-color;
+}
+.footer .footer-content img {
+  max-width: 100%;
+}
+.footer .social-icons {
+  display: flex;
+  flex-wrap: wrap;
+}
+.footer .social-icons > a {
+  width: 36px;
+  height: 36px;
+  line-height: 36px;
+  font-size: 1.15rem;
+  text-align: center;
+  border-radius: 50%;
+  background-color: $legend-footer-color1;
+  color: $legend-footer-background;
+  margin: 0 15px 10px 0;
+}
+.footer .social-icons > a:last-child {
+  margin-right: 0;
+}
+/* Footer Widgets */
+.footer .widget .widget:not(:first-child) {
+  margin-top: 3rem;
+}
+.footer .widget:not(.widget-grid) .widget-inner {
+  padding: 0 !important;
+}
+.footer .widget-grid .widget-inner .widget-list {
+  color: $legend-footer-color2;
+  background-color: transparent;
+}
+.footer .widget-newsletter .widget-inner {
+  padding: 0 15px;
+}
+.footer .widget-list .widget-inner .list-container {
+  margin: 0;
+}
+.footer .widget-list .list-container li {
+  text-align: left;
+}
+body.isShopBuilder .plentylions-link {
+  display: none;
+}
+.plentylions-link hr {
+  border-color: $legend-footer-color2;
+}
+.plentylions-link .plenty-link {
+  color: $legend-footer-color2;
+  font-size: 0.8rem;
+}
+.plentylions-link .plenty-link img {
+  display: inline;
+  max-width: 20px;
+}
+
+/* BackToTop */
+.back-to-top {
+  width: auto;
+  height: auto;
+  opacity: 1;
+  background: rgba(0, 0, 0, 0.78);
+  border: 1px solid #4a4a4a;
+  padding: 0.2rem 0.4rem 0.2rem 0.8rem;
+}
+.back-to-top .text,
+.back-to-top i {
+  line-height: 1;
+  color: #f7f7f9;
+}
+.back-to-top .text {
+  font-size: 0.8rem;
+}
+.back-to-top i {
+  font-size: 1.6rem;
+  vertical-align: middle;
+}

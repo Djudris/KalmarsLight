@@ -1,0 +1,109 @@
+{% import "Ceres::PageDesign.Macros.LayoutContainer" as LayoutContainer %}
+
+{% set companyLogo  = config("Ceres.header.company_logo") %}
+{% set showHeaderNavBar = config("Ceres.header.show_navbars") %}
+{% set companyName  = trans("Ceres::Template.headerCompanyName") %}
+{% set useMegaMenu  = config("Ceres.header.megamenu_levels") > 1 %}
+
+<nav class="navbar header-fw unfixed{% if useMegaMenu %} megamenu{% else %} normalmenu{% endif %}">
+    <div class="nv-wrap">
+        <div class="container-max px-0">
+            <div class="row w-100 mx-0 flex-row flex-wrap align-items-center">
+                <div class="col-10 col-sm-5 col-md-4 col-lg-4 site-logo">
+                    {% if companyLogo | trim | length > 0 %}
+                        <a class="navbar-brand" href="{{ homepageURL }}">
+                            <img alt="{{ companyName }}" src="{{ plugin_path('Legend') }}/images/logo.png" class="img-fluid" />
+                        </a>
+                    {% endif %}
+                </div>
+                <div class="col-2 col-sm-1 order-sm-5 order-0 text-right nopad-mobile d-lg-none">
+                    <button v-open-mobile-navigation class="navbar-toggler" type="button">
+                        <span class="pl-material pl-outline-dehaze"></span>
+                    </button>
+                </div>
+                <div class="col-12 col-sm-6 col-md-7 col-lg-4 searchCol nopad-mobile">
+                    {% set overrideSearchBar = LayoutContainer.show("Ceres::Search.SearchBar") %}
+                    {% if overrideSearchBar | trim is empty %}
+                        <lazy-hydrate when-visible>
+                            <item-search>
+                                <div class="w-100 position-relative d-flex flex-grow-1">
+                                    <input type="search" class="search-input px-3 py-2 flex-grow-1" placeholder="{{ Twig.print('trans("Legend::Template.headerSearchPlaceholder")') }}">
+                                    <button class="search-submit" type="submit">
+                                        <span class="pl-material pl-baseline-search"></span>
+                                    </button>
+                                </div>
+                            </item-search>
+                        </lazy-hydrate>
+                    {% else %}
+                        {{ overrideSearchBar | raw }}
+                    {% endif %}
+                </div>
+                <div class="col-md-4 col-lg-4 d-none d-lg-block">
+                    <a v-toggle-basket-preview href="#" class="toggle-basket-preview nav-link text-right">
+                        <span class="pl-material pl-outline-shopping_cart"></span>
+                        {{ trans('Legend::Template.headerCart1') }} <span class="qty" v-basket-item-quantity="$store.state.basket.data.itemQuantity">0</span> {{ trans('Legend::Template.headerCart2') }}
+                        <span class="sum" v-if="!$store.state.basket.showNetPrices" v-basket-item-sum="$store.state.basket.data.itemSum">0,00 {{ services.checkout.getCurrencyData()[currencyFormat] }}</span>
+                        <span class="sum" v-else v-cloak v-basket-item-sum="$store.state.basket.data.itemSumNet">0,00 {{ services.checkout.getCurrencyData()[currencyFormat] }}</span>
+                    </a>
+
+                    <basket-preview v-if="$store.state.lazyComponent.components['basket-preview']" :show-net-prices="{{ showNetPrices | json_encode }}">
+                        <template #before-basket-item>
+                            {{ LayoutContainer.show("Ceres::BasketList.BeforeItem") }}
+                        </template>
+                        <template #after-basket-item>
+                            {{ LayoutContainer.show("Ceres::BasketList.AfterItem") }}
+                        </template>
+                        <template #before-basket-totals>
+                            {{ LayoutContainer.show("Ceres::BasketPreview.BeforeBasketTotals") }}
+                        </template>
+                        <template #before-item-sum>
+                            {{ LayoutContainer.show("Ceres::BasketTotals.BeforeItemSum") }}
+                        </template>
+                        <template #after-item-sum>
+                            {{ LayoutContainer.show("Ceres::BasketTotals.AfterItemSum") }}
+                        </template>
+                        <template #before-shipping-costs>
+                            {{ LayoutContainer.show("Ceres::BasketTotals.BeforeShippingCosts") }}
+                        </template>
+                        <template #after-shipping-costs>
+                            {{ LayoutContainer.show("Ceres::BasketTotals.AfterShippingCosts") }}
+                        </template>
+                        <template #before-total-sum>
+                            {{ LayoutContainer.show("Ceres::BasketTotals.BeforeTotalSum") }}
+                        </template>
+                        <template #before-vat>
+                            {{ LayoutContainer.show("Ceres::BasketTotals.BeforeVat") }}
+                        </template>
+                        <template #after-vat>
+                            {{ LayoutContainer.show("Ceres::BasketTotals.AfterVat") }}
+                        </template>
+                        <template #after-total-sum>
+                            {{ LayoutContainer.show("Ceres::BasketTotals.AfterTotalSum") }}
+                        </template>
+                        <template #after-basket-totals>
+                            {{ LayoutContainer.show("Ceres::BasketPreview.AfterBasketTotals") }}
+                        </template>
+                        <template #before-checkout-button>
+                            {{ LayoutContainer.show("Ceres::BasketPreview.BeforeCheckoutButton") }}
+                        </template>
+                        <template #after-checkout-button>
+                            {{ LayoutContainer.show("Ceres::BasketPreview.AfterCheckoutButton") }}
+                        </template>
+                    </basket-preview>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+<div class="navbar-menu header-fw p-0">
+    <div id="mainTopMenuWrapper" class="d-none d-lg-block">
+        <div class="container-max">
+            <div class="main-navbar-collapsable">
+                {% if showHeaderNavBar == "top" or showHeaderNavBar == "both" or not services.template.isCategory() %}
+                    {% include "Legend::PageDesign.Partials.Header.NavigationList" %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
